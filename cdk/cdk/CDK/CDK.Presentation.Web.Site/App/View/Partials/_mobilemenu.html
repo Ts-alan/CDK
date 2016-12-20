@@ -1,0 +1,24 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel($event)"></button>
+</div>
+<div class="modal-body">
+    <ul class="nav navbar-nav navbar-right text-center">
+        <li><a href="" ng-click="openSelectCityModal()">Select a city</a></li>
+        <!--<li class="active"><a href="#">Buy</a></li>
+        <li><a href="#">Rent</a></li>
+        <li><a href="#">Professionals</a></li>-->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More +</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">News</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <!--<li><a href="#"  data-ng-hide="!index.authentication.isAuth" class="">Saved condos <span>0</span></a></li>
+        <li><a href="#" data-ng-hide="!index.authentication.isAuth" class="">Saved searches <span>0</span></a></li>-->
+        <li data-ng-hide="!index.authentication.isAuth" ui-sref-active="active" ui-sref="account.edit" href="/account" class="active"><a href="#" >My Account</a></li>
+        <li data-ng-hide="!index.authentication.isAuth" class=""><a href="" ng-click="logOut()">Sign Out</a></li>
+        <li class="unsigned ng-hide" data-ng-hide="index.authentication.isAuth"><a href="" ng-click="openLoginModal()">Sign In</a></li>
+    </ul>
+</div>

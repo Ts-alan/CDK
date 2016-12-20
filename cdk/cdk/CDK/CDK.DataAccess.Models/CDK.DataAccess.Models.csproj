@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDB17F34-EAC3-4AC2-87C3-0D0FD03FBB20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDK.DataAccess.Models</RootNamespace>
+    <AssemblyName>CDK.DataAccess.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.3.1, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.3.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern, Version=3.3.5.1, Culture=neutral, PublicKeyToken=e598640c26ef2b0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Repository.Pattern.3.3.5.1\lib\net451\Repository.Pattern.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern.Ef6, Version=3.3.5.1, Culture=neutral, PublicKeyToken=e598640c26ef2b0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Repository.Pattern.Ef6.3.3.5.1\lib\net451\Repository.Pattern.Ef6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DffMedataTypeAttribute.cs" />
+    <Compile Include="cdk\Role.cs" />
+    <Compile Include="cdk\User.cs" />
+    <Compile Include="cdk\UserClaim.cs" />
+    <Compile Include="cdk\UserLogin.cs" />
+    <Compile Include="ddf\ABoard.cs" />
+    <Compile Include="ddf\AccessType.cs" />
+    <Compile Include="ddf\ALanguage.cs" />
+    <Compile Include="ddf\Amenitie.cs" />
+    <Compile Include="ddf\AmenitiesNearby.cs" />
+    <Compile Include="ddf\Amperage.cs" />
+    <Compile Include="ddf\Appliance.cs" />
+    <Compile Include="ddf\ArchitecturalStyle.cs" />
+    <Compile Include="ddf\AuditDdfRequest.cs" />
+    <Compile Include="ddf\BasementDevelopment.cs" />
+    <Compile Include="ddf\BasementFeature.cs" />
+    <Compile Include="ddf\BasementType.cs" />
+    <Compile Include="ddf\Board.cs" />
+    <Compile Include="ddf\Building.cs" />
+    <Compile Include="ddf\BuildingAddress.cs" />
+    <Compile Include="ddf\BuildingLand.cs" />
+    <Compile Include="ddf\BuildingType.cs" />
+    <Compile Include="ddf\Business.cs" />
+    <Compile Include="ddf\BusinessSubType.cs" />
+    <Compile Include="ddf\BusinessType.cs" />
+    <Compile Include="ddf\CeilingType.cs" />
+    <Compile Include="ddf\ClearCeilingHeight.cs" />
+    <Compile Include="ddf\CommunicationType.cs" />
+    <Compile Include="ddf\CommunityFeature.cs" />
+    <Compile Include="ddf\ConstructionMaterial.cs" />
+    <Compile Include="ddf\ConstructionStatus.cs" />
+    <Compile Include="ddf\ConstructionStyleAttachment.cs" />
+    <Compile Include="ddf\ConstructionStyleOther.cs" />
+    <Compile Include="ddf\ConstructionStyleSplitLevel.cs" />
+    <Compile Include="ddf\CoolingType.cs" />
+    <Compile Include="ddf\Crop.cs" />
+    <Compile Include="ddf\CurrentUse.cs" />
+    <Compile Include="ddf\DocumentType.cs" />
+    <Compile Include="ddf\Easement.cs" />
+    <Compile Include="ddf\EquipmentType.cs" />
+    <Compile Include="ddf\ExteriorFinish.cs" />
+    <Compile Include="ddf\FarmType.cs" />
+    <Compile Include="ddf\Feature.cs" />
+    <Compile Include="ddf\FenceType.cs" />
+    <Compile Include="ddf\FireplaceFuel.cs" />
+    <Compile Include="ddf\FireplaceType.cs" />
+    <Compile Include="ddf\FireProtection.cs" />
+    <Compile Include="ddf\Fixture.cs" />
+    <Compile Include="ddf\FlooringType.cs" />
+    <Compile Include="ddf\FoundationType.cs" />
+    <Compile Include="ddf\Franchisor.cs" />
+    <Compile Include="ddf\FrontsOn.cs" />
+    <Compile Include="ddf\HeatingFuel.cs" />
+    <Compile Include="ddf\HeatingType.cs" />
+    <Compile Include="ddf\IndividualDesignation.cs" />
+    <Compile Include="ddf\IrrigationType.cs" />
+    <Compile Include="ddf\LandDispositionType.cs" />
+    <Compile Include="ddf\LandscapeFeature.cs" />
+    <Compile Include="ddf\LeaseType.cs" />
+    <Compile Include="ddf\LiveStockType.cs" />
+    <Compile Include="ddf\LoadingType.cs" />
+    <Compile Include="ddf\Machinery.cs" />
+    <Compile Include="ddf\MaintenanceFeeType.cs" />
+    <Compile Include="ddf\MeasureUnit.cs" />
+    <Compile Include="ddf\OrganizationDesignation.cs" />
+    <Compile Include="ddf\OrganizationType.cs" />
+    <Compile Include="ddf\OwnershipType.cs" />
+    <Compile Include="ddf\ParkingType.cs" />
+    <Compile Include="ddf\PaymentUnit.cs" />
+    <Compile Include="ddf\PoolFeature.cs" />
+    <Compile Include="ddf\PoolType.cs" />
+    <Compile Include="ddf\PropertyType.cs" />
+    <Compile Include="ddf\RentalEquipmentType.cs" />
+    <Compile Include="ddf\RightType.cs" />
+    <Compile Include="ddf\RoadType.cs" />
+    <Compile Include="ddf\RoofMaterial.cs" />
+    <Compile Include="ddf\RoofStyle.cs" />
+    <Compile Include="ddf\RoomLevel.cs" />
+    <Compile Include="ddf\RoomType.cs" />
+    <Compile Include="ddf\Sewer.cs" />
+    <Compile Include="ddf\SignType.cs" />
+    <Compile Include="ddf\SoilEvaluationType.cs" />
+    <Compile Include="ddf\SoilType.cs" />
+    <Compile Include="ddf\Specialtie.cs" />
+    <Compile Include="ddf\StorageType.cs" />
+    <Compile Include="ddf\StoreFront.cs" />
+    <Compile Include="ddf\StructureType.cs" />
+    <Compile Include="ddf\SurfaceWater.cs" />
+    <Compile Include="ddf\TopographyType.cs" />
+    <Compile Include="ddf\TransactionType.cs" />
+    <Compile Include="ddf\UffiCode.cs" />
+    <Compile Include="ddf\Unit.cs" />
+    <Compile Include="ddf\UnitAgent.cs" />
+    <Compile Include="ddf\UnitAgentContact.cs" />
+    <Compile Include="ddf\UnitAgentDesignation.cs" />
+    <Compile Include="ddf\UnitAgentLanguage.cs" />
+    <Compile Include="ddf\UnitAgentOffice.cs" />
+    <Compile Include="ddf\UnitAgentOfficePhone.cs" />
+    <Compile Include="ddf\UnitAgentOfficeWebsite.cs" />
+    <Compile Include="ddf\UnitAgentPhone.cs" />
+    <Compile Include="ddf\UnitAgentSpeciality.cs" />
+    <Compile Include="ddf\UnitAgentTradingArea.cs" />
+    <Compile Include="ddf\UnitAgentWebsite.cs" />
+    <Compile Include="ddf\UnitOpenHouse.cs" />
+    <Compile Include="ddf\UnitParkingSpace.cs" />
+    <Compile Include="ddf\UnitPhoto.cs" />
+    <Compile Include="ddf\UnitRoom.cs" />
+    <Compile Include="ddf\UnitUtilitiesAvailable.cs" />
+    <Compile Include="ddf\UtilityPower.cs" />
+    <Compile Include="ddf\UtilityType.cs" />
+    <Compile Include="ddf\UtilityWater.cs" />
+    <Compile Include="ddf\ViewType.cs" />
+    <Compile Include="ddf\WaterFrontType.cs" />
+    <Compile Include="ddf\ZoningType.cs" />
+    <Compile Include="IBaseModel.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="cdk\Developer.cs" />
+    <Compile Include="cdk\Development.cs" />
+    <Compile Include="cdk\DevelopmentAddress.cs" />
+    <Compile Include="cdk\DevelopmentAmenities.cs" />
+    <Compile Include="cdk\DevelopmentFloorPlan.cs" />
+    <Compile Include="cdk\DevelopmentPhoto.cs" />
+    <Compile Include="cdk\DevelopmentVideo.cs" />
+    <Compile Include="IDdfMetadata.cs" />
+    <Compile Include="IExternalModel.cs" />
+    <Compile Include="IPhotoModel.cs" />
+    <Compile Include="ISequenceModel.cs" />
+    <Compile Include="IVideoModel.cs" />
+    <Compile Include="cdk\MetroArea.cs" />
+    <Compile Include="cdk\NeighborhoodArea.cs" />
+    <Compile Include="cdk\NeighborhoodGuide.cs" />
+    <Compile Include="cdk\NeighborhoodGuidePhoto.cs" />
+    <Compile Include="cdk\NeighborhoodGuideVideo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ISeoModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

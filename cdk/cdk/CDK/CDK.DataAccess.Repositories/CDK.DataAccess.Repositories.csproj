@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC854294-78E6-4EEB-831D-85DB8B54A2CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDK.DataAccess.Repositories</RootNamespace>
+    <AssemblyName>CDK.DataAccess.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.3.1, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.3.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern, Version=3.3.5.1, Culture=neutral, PublicKeyToken=e598640c26ef2b0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Repository.Pattern.3.3.5.1\lib\net451\Repository.Pattern.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern.Ef6, Version=3.3.5.1, Culture=neutral, PublicKeyToken=e598640c26ef2b0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Repository.Pattern.Ef6.3.3.5.1\lib\net451\Repository.Pattern.Ef6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CDKDBContext.cs" />
+    <Compile Include="Extensions\CollectionExtenstions.cs" />
+    <Compile Include="Extensions\MapExtenstions.cs" />
+    <Compile Include="Mappings\cdk\RoleMap.cs" />
+    <Compile Include="Mappings\cdk\UserClaimMap.cs" />
+    <Compile Include="Mappings\cdk\UserLoginMap.cs" />
+    <Compile Include="Mappings\cdk\UserMap.cs" />
+    <Compile Include="Mappings\cdk\DeveloperMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentAddressMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentAmenitiesMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentFloorPlanMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentPhotoMap.cs" />
+    <Compile Include="Mappings\cdk\DevelopmentVideoMap.cs" />
+    <Compile Include="Mappings\cdk\MetroAreaMap.cs" />
+    <Compile Include="Mappings\cdk\NeighborhoodAreaMap.cs" />
+    <Compile Include="Mappings\cdk\NeighborhoodGuideMap.cs" />
+    <Compile Include="Mappings\cdk\NeighborhoodGuidePhotoMap.cs" />
+    <Compile Include="Mappings\cdk\NeighborhoodGuideVideoMap.cs" />
+    <Compile Include="Mappings\ddf\ABoardMap.cs" />
+    <Compile Include="Mappings\ddf\AccessTypeMap.cs" />
+    <Compile Include="Mappings\ddf\ALanguageMap.cs" />
+    <Compile Include="Mappings\ddf\AmenitieMap.cs" />
+    <Compile Include="Mappings\ddf\AmenitiesNearbyMap.cs" />
+    <Compile Include="Mappings\ddf\AmperageMap.cs" />
+    <Compile Include="Mappings\ddf\ApplianceMap.cs" />
+    <Compile Include="Mappings\ddf\ArchitecturalStyleMap.cs" />
+    <Compile Include="Mappings\ddf\AuditDdfRequestMap.cs" />
+    <Compile Include="Mappings\ddf\BasementDevelopmentMap.cs" />
+    <Compile Include="Mappings\ddf\BasementFeatureMap.cs" />
+    <Compile Include="Mappings\ddf\BasementTypeMap.cs" />
+    <Compile Include="Mappings\ddf\BoardMap.cs" />
+    <Compile Include="Mappings\ddf\BuildingAddressMap.cs" />
+    <Compile Include="Mappings\ddf\BuildingLandMap.cs" />
+    <Compile Include="Mappings\ddf\BuildingMap.cs" />
+    <Compile Include="Mappings\ddf\BuildingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\BusinessMap.cs" />
+    <Compile Include="Mappings\ddf\BusinessSubTypeMap.cs" />
+    <Compile Include="Mappings\ddf\BusinessTypeMap.cs" />
+    <Compile Include="Mappings\ddf\CeilingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\ClearCeilingHeightMap.cs" />
+    <Compile Include="Mappings\ddf\CommunicationTypeMap.cs" />
+    <Compile Include="Mappings\ddf\CommunityFeatureMap.cs" />
+    <Compile Include="Mappings\ddf\ConstructionMaterialMap.cs" />
+    <Compile Include="Mappings\ddf\ConstructionStatuMap.cs" />
+    <Compile Include="Mappings\ddf\ConstructionStyleAttachmentMap.cs" />
+    <Compile Include="Mappings\ddf\ConstructionStyleOtherMap.cs" />
+    <Compile Include="Mappings\ddf\ConstructionStyleSplitLevelMap.cs" />
+    <Compile Include="Mappings\ddf\CoolingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\CropMap.cs" />
+    <Compile Include="Mappings\ddf\CurrentUseMap.cs" />
+    <Compile Include="Mappings\ddf\DocumentTypeMap.cs" />
+    <Compile Include="Mappings\ddf\EasementMap.cs" />
+    <Compile Include="Mappings\ddf\EquipmentTypeMap.cs" />
+    <Compile Include="Mappings\ddf\ExteriorFinishMap.cs" />
+    <Compile Include="Mappings\ddf\FarmTypeMap.cs" />
+    <Compile Include="Mappings\ddf\FeatureMap.cs" />
+    <Compile Include="Mappings\ddf\FenceTypeMap.cs" />
+    <Compile Include="Mappings\ddf\FireplaceFuelMap.cs" />
+    <Compile Include="Mappings\ddf\FireplaceTypeMap.cs" />
+    <Compile Include="Mappings\ddf\FireProtectionMap.cs" />
+    <Compile Include="Mappings\ddf\FixtureMap.cs" />
+    <Compile Include="Mappings\ddf\FlooringTypeMap.cs" />
+    <Compile Include="Mappings\ddf\FoundationTypeMap.cs" />
+    <Compile Include="Mappings\ddf\FranchisorMap.cs" />
+    <Compile Include="Mappings\ddf\FrontsOnMap.cs" />
+    <Compile Include="Mappings\ddf\HeatingFuelMap.cs" />
+    <Compile Include="Mappings\ddf\HeatingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\IndividualDesignationMap.cs" />
+    <Compile Include="Mappings\ddf\IrrigationTypeMap.cs" />
+    <Compile Include="Mappings\ddf\LandDispositionTypeMap.cs" />
+    <Compile Include="Mappings\ddf\LandscapeFeatureMap.cs" />
+    <Compile Include="Mappings\ddf\LeaseTypeMap.cs" />
+    <Compile Include="Mappings\ddf\LiveStockTypeMap.cs" />
+    <Compile Include="Mappings\ddf\LoadingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\MachineryMap.cs" />
+    <Compile Include="Mappings\ddf\MaintenanceFeeTypeMap.cs" />
+    <Compile Include="Mappings\ddf\MeasureUnitMap.cs" />
+    <Compile Include="Mappings\ddf\OrganizationDesignationMap.cs" />
+    <Compile Include="Mappings\ddf\OrganizationTypeMap.cs" />
+    <Compile Include="Mappings\ddf\OwnershipTypeMap.cs" />
+    <Compile Include="Mappings\ddf\ParkingTypeMap.cs" />
+    <Compile Include="Mappings\ddf\PaymentUnitMap.cs" />
+    <Compile Include="Mappings\ddf\PoolFeatureMap.cs" />
+    <Compile Include="Mappings\ddf\PoolTypeMap.cs" />
+    <Compile Include="Mappings\ddf\PropertyTypeMap.cs" />
+    <Compile Include="Mappings\ddf\RentalEquipmentTypeMap.cs" />
+    <Compile Include="Mappings\ddf\RightTypeMap.cs" />
+    <Compile Include="Mappings\ddf\RoadTypeMap.cs" />
+    <Compile Include="Mappings\ddf\RoofMaterialMap.cs" />
+    <Compile Include="Mappings\ddf\RoofStyleMap.cs" />
+    <Compile Include="Mappings\ddf\RoomLevelMap.cs" />
+    <Compile Include="Mappings\ddf\RoomTypeMap.cs" />
+    <Compile Include="Mappings\ddf\SewerMap.cs" />
+    <Compile Include="Mappings\ddf\SignTypeMap.cs" />
+    <Compile Include="Mappings\ddf\SoilEvaluationTypeMap.cs" />
+    <Compile Include="Mappings\ddf\SoilTypeMap.cs" />
+    <Compile Include="Mappings\ddf\SpecialtieMap.cs" />
+    <Compile Include="Mappings\ddf\StorageTypeMap.cs" />
+    <Compile Include="Mappings\ddf\StoreFrontMap.cs" />
+    <Compile Include="Mappings\ddf\StructureTypeMap.cs" />
+    <Compile Include="Mappings\ddf\SurfaceWaterMap.cs" />
+    <Compile Include="Mappings\ddf\TopographyTypeMap.cs" />
+    <Compile Include="Mappings\ddf\TransactionTypeMap.cs" />
+    <Compile Include="Mappings\ddf\UffiCodeMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentContactMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentDesignationMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentLanguageMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentOfficeMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentOfficePhoneMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentOfficeWebsiteMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentPhoneMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentSpecialityMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentTradingAreaMap.cs" />
+    <Compile Include="Mappings\ddf\UnitAgentWebsiteMap.cs" />
+    <Compile Include="Mappings\ddf\UnitMap.cs" />
+    <Compile Include="Mappings\ddf\UnitOpenHouseMap.cs" />
+    <Compile Include="Mappings\ddf\UnitParkingSpaceMap.cs" />
+    <Compile Include="Mappings\ddf\UnitPhotoMap.cs" />
+    <Compile Include="Mappings\ddf\UnitRoomMap.cs" />
+    <Compile Include="Mappings\ddf\UnitUtilitiesAvailableMap.cs" />
+    <Compile Include="Mappings\ddf\UtilityPowerMap.cs" />
+    <Compile Include="Mappings\ddf\UtilityTypeMap.cs" />
+    <Compile Include="Mappings\ddf\UtilityWaterMap.cs" />
+    <Compile Include="Mappings\ddf\ViewTypeMap.cs" />
+    <Compile Include="Mappings\ddf\WaterFrontTypeMap.cs" />
+    <Compile Include="Mappings\ddf\ZoningTypeMap.cs" />
+    <Compile Include="Migrations\201604051913517_Initial.cs" />
+    <Compile Include="Migrations\201604051913517_Initial.Designer.cs">
+      <DependentUpon>201604051913517_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604071319335_UpdateNeighborhoodGuidePhoto.cs" />
+    <Compile Include="Migrations\201604071319335_UpdateNeighborhoodGuidePhoto.Designer.cs">
+      <DependentUpon>201604071319335_UpdateNeighborhoodGuidePhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604111413543_UpdateDevelopmentRelations.cs" />
+    <Compile Include="Migrations\201604111413543_UpdateDevelopmentRelations.Designer.cs">
+      <DependentUpon>201604111413543_UpdateDevelopmentRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604121125135_UpdateDevAmenities.cs" />
+    <Compile Include="Migrations\201604121125135_UpdateDevAmenities.Designer.cs">
+      <DependentUpon>201604121125135_UpdateDevAmenities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604121835277_UpdateSequenceNumberType.cs" />
+    <Compile Include="Migrations\201604121835277_UpdateSequenceNumberType.Designer.cs">
+      <DependentUpon>201604121835277_UpdateSequenceNumberType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604141800548_UpdateVideoModels.cs" />
+    <Compile Include="Migrations\201604141800548_UpdateVideoModels.Designer.cs">
+      <DependentUpon>201604141800548_UpdateVideoModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604151335368_AddSeoDataFields.cs" />
+    <Compile Include="Migrations\201604151335368_AddSeoDataFields.Designer.cs">
+      <DependentUpon>201604151335368_AddSeoDataFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604181729186_UpdateNeighborhoodGuideFields.cs" />
+    <Compile Include="Migrations\201604181729186_UpdateNeighborhoodGuideFields.Designer.cs">
+      <DependentUpon>201604181729186_UpdateNeighborhoodGuideFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604181958305_AdjustPhotoModelFields.cs" />
+    <Compile Include="Migrations\201604181958305_AdjustPhotoModelFields.Designer.cs">
+      <DependentUpon>201604181958305_AdjustPhotoModelFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604221140077_AddUserToDB.cs" />
+    <Compile Include="Migrations\201604221140077_AddUserToDB.Designer.cs">
+      <DependentUpon>201604221140077_AddUserToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604250927410_DeleteDdfrawScheme.cs" />
+    <Compile Include="Migrations\201604250927410_DeleteDdfrawScheme.Designer.cs">
+      <DependentUpon>201604250927410_DeleteDdfrawScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604251338216_UpdateDDFScheme.cs" />
+    <Compile Include="Migrations\201604251338216_UpdateDDFScheme.Designer.cs">
+      <DependentUpon>201604251338216_UpdateDDFScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604262032115_MetroNeighborhoodTypes.cs" />
+    <Compile Include="Migrations\201604262032115_MetroNeighborhoodTypes.Designer.cs">
+      <DependentUpon>201604262032115_MetroNeighborhoodTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604281558427_UpdateUserModel.cs" />
+    <Compile Include="Migrations\201604281558427_UpdateUserModel.Designer.cs">
+      <DependentUpon>201604281558427_UpdateUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604292031173_UserModelFixFields.cs" />
+    <Compile Include="Migrations\201604292031173_UserModelFixFields.Designer.cs">
+      <DependentUpon>201604292031173_UserModelFixFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605022120101_FixUnitAgentRelations.cs" />
+    <Compile Include="Migrations\201605022120101_FixUnitAgentRelations.Designer.cs">
+      <DependentUpon>201605022120101_FixUnitAgentRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605111834303_SeoForUnits.cs" />
+    <Compile Include="Migrations\201605111834303_SeoForUnits.Designer.cs">
+      <DependentUpon>201605111834303_SeoForUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605151327348_UnitRemovedDate.cs" />
+    <Compile Include="Migrations\201605151327348_UnitRemovedDate.Designer.cs">
+      <DependentUpon>201605151327348_UnitRemovedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605161234232_TransactionOwnership.cs" />
+    <Compile Include="Migrations\201605161234232_TransactionOwnership.Designer.cs">
+      <DependentUpon>201605161234232_TransactionOwnership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605161605558_RemoveSchemeClients.cs" />
+    <Compile Include="Migrations\201605161605558_RemoveSchemeClients.Designer.cs">
+      <DependentUpon>201605161605558_RemoveSchemeClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281619343_UnitsNumbers.cs" />
+    <Compile Include="Migrations\201605281619343_UnitsNumbers.Designer.cs">
+      <DependentUpon>201605281619343_UnitsNumbers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281630324_UnitsNumbersBugCorrection.cs" />
+    <Compile Include="Migrations\201605281630324_UnitsNumbersBugCorrection.Designer.cs">
+      <DependentUpon>201605281630324_UnitsNumbersBugCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281650052_MetroAreaCoordinate.cs" />
+    <Compile Include="Migrations\201605281650052_MetroAreaCoordinate.Designer.cs">
+      <DependentUpon>201605281650052_MetroAreaCoordinate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281727111_LTypeNeighborhood.cs" />
+    <Compile Include="Migrations\201605281727111_LTypeNeighborhood.Designer.cs">
+      <DependentUpon>201605281727111_LTypeNeighborhood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605282223267_HasChildNeighborhood.cs" />
+    <Compile Include="Migrations\201605282223267_HasChildNeighborhood.Designer.cs">
+      <DependentUpon>201605282223267_HasChildNeighborhood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605282242190_HasChildNeighborhoodBugCorrecttion.cs" />
+    <Compile Include="Migrations\201605282242190_HasChildNeighborhoodBugCorrecttion.Designer.cs">
+      <DependentUpon>201605282242190_HasChildNeighborhoodBugCorrecttion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606011817137_BuildingAddressWithLevels.cs" />
+    <Compile Include="Migrations\201606011817137_BuildingAddressWithLevels.Designer.cs">
+      <DependentUpon>201606011817137_BuildingAddressWithLevels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606011851525_NeighborhoodAreaRemovingBuildingAddress.cs" />
+    <Compile Include="Migrations\201606011851525_NeighborhoodAreaRemovingBuildingAddress.Designer.cs">
+      <DependentUpon>201606011851525_NeighborhoodAreaRemovingBuildingAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606021118332_NeighborhoodAreaHasChildToBool.cs" />
+    <Compile Include="Migrations\201606021118332_NeighborhoodAreaHasChildToBool.Designer.cs">
+      <DependentUpon>201606021118332_NeighborhoodAreaHasChildToBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CDK.DataAccess.Models\CDK.DataAccess.Models.csproj">
+      <Project>{bdb17f34-eac3-4ac2-87c3-0d0fd03fbb20}</Project>
+      <Name>CDK.DataAccess.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604051913517_Initial.resx">
+      <DependentUpon>201604051913517_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071319335_UpdateNeighborhoodGuidePhoto.resx">
+      <DependentUpon>201604071319335_UpdateNeighborhoodGuidePhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111413543_UpdateDevelopmentRelations.resx">
+      <DependentUpon>201604111413543_UpdateDevelopmentRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604121125135_UpdateDevAmenities.resx">
+      <DependentUpon>201604121125135_UpdateDevAmenities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604121835277_UpdateSequenceNumberType.resx">
+      <DependentUpon>201604121835277_UpdateSequenceNumberType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604141800548_UpdateVideoModels.resx">
+      <DependentUpon>201604141800548_UpdateVideoModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604151335368_AddSeoDataFields.resx">
+      <DependentUpon>201604151335368_AddSeoDataFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604181729186_UpdateNeighborhoodGuideFields.resx">
+      <DependentUpon>201604181729186_UpdateNeighborhoodGuideFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604181958305_AdjustPhotoModelFields.resx">
+      <DependentUpon>201604181958305_AdjustPhotoModelFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604221140077_AddUserToDB.resx">
+      <DependentUpon>201604221140077_AddUserToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604250927410_DeleteDdfrawScheme.resx">
+      <DependentUpon>201604250927410_DeleteDdfrawScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604251338216_UpdateDDFScheme.resx">
+      <DependentUpon>201604251338216_UpdateDDFScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604262032115_MetroNeighborhoodTypes.resx">
+      <DependentUpon>201604262032115_MetroNeighborhoodTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604281558427_UpdateUserModel.resx">
+      <DependentUpon>201604281558427_UpdateUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604292031173_UserModelFixFields.resx">
+      <DependentUpon>201604292031173_UserModelFixFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605022120101_FixUnitAgentRelations.resx">
+      <DependentUpon>201605022120101_FixUnitAgentRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605111834303_SeoForUnits.resx">
+      <DependentUpon>201605111834303_SeoForUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151327348_UnitRemovedDate.resx">
+      <DependentUpon>201605151327348_UnitRemovedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605161234232_TransactionOwnership.resx">
+      <DependentUpon>201605161234232_TransactionOwnership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605161605558_RemoveSchemeClients.resx">
+      <DependentUpon>201605161605558_RemoveSchemeClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281619343_UnitsNumbers.resx">
+      <DependentUpon>201605281619343_UnitsNumbers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281630324_UnitsNumbersBugCorrection.resx">
+      <DependentUpon>201605281630324_UnitsNumbersBugCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281650052_MetroAreaCoordinate.resx">
+      <DependentUpon>201605281650052_MetroAreaCoordinate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281727111_LTypeNeighborhood.resx">
+      <DependentUpon>201605281727111_LTypeNeighborhood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605282223267_HasChildNeighborhood.resx">
+      <DependentUpon>201605282223267_HasChildNeighborhood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605282242190_HasChildNeighborhoodBugCorrecttion.resx">
+      <DependentUpon>201605282242190_HasChildNeighborhoodBugCorrecttion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606011817137_BuildingAddressWithLevels.resx">
+      <DependentUpon>201606011817137_BuildingAddressWithLevels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606011851525_NeighborhoodAreaRemovingBuildingAddress.resx">
+      <DependentUpon>201606011851525_NeighborhoodAreaRemovingBuildingAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021118332_NeighborhoodAreaHasChildToBool.resx">
+      <DependentUpon>201606021118332_NeighborhoodAreaHasChildToBool.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dbScripts\201604051913517_Initial.sql" />
+    <Content Include="dbScripts\201604071319335_UpdateNeighborhoodGuidePhoto.sql" />
+    <Content Include="dbScripts\201604111413543_UpdateDevelopmentRelations.sql" />
+    <Content Include="dbScripts\201604121125135_UpdateDevAmenities.sql" />
+    <Content Include="dbScripts\201604121835277_UpdateSequenceNumberType.sql" />
+    <Content Include="dbScripts\201604141800548_UpdateVideoModels.sql" />
+    <Content Include="dbScripts\201604151335368_AddSeoDataFields.sql" />
+    <Content Include="dbScripts\201604181729186_UpdateNeighborhoodGuideFields.sql" />
+    <Content Include="dbScripts\201604181958305_AdjustPhotoModelFields.sql" />
+    <Content Include="dbScripts\201604221140077_AddUserToDB.sql" />
+    <Content Include="dbScripts\201604250927410_DeleteDdfrawScheme.sql" />
+    <Content Include="dbScripts\201604251338216_UpdateDDFScheme.sql" />
+    <Content Include="dbScripts\201604262032115_MetroNeighborhoodTypes.sql" />
+    <Content Include="dbScripts\201604281558427_UpdateUserModel.sql" />
+    <Content Include="dbScripts\201604292031173_UserModelFixFields.sql" />
+    <Content Include="dbScripts\201605022120101_FixUnitAgentRelations.sql" />
+    <Content Include="dbScripts\201605111834303_SeoForUnits.sql" />
+    <Content Include="dbScripts\201605151327348_UnitRemovedDate.sql" />
+    <Content Include="dbScripts\201605161234232_TransactionOwnership.sql" />
+    <Content Include="dbScripts\201605161605558_RemoveSchemeClients.sql" />
+    <Content Include="dbScripts\201605281619343_UnitsNumbers.sql" />
+    <Content Include="dbScripts\201605281630324_UnitsNumbersBugCorrection.sql" />
+    <Content Include="dbScripts\201605281650052_MetroAreaCoordinate.sql" />
+    <Content Include="dbScripts\201605281727111_LTypeNeighborhood.sql" />
+    <Content Include="dbScripts\201605282223267_HasChildNeighborhood.sql" />
+    <Content Include="dbScripts\201605282242190_HasChildNeighborhoodBugCorrecttion.sql" />
+    <Content Include="dbScripts\201606011817137_BuildingAddressWithLevels.sql" />
+    <Content Include="dbScripts\201606021118332_NeighborhoodAreaHasChildToBool.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

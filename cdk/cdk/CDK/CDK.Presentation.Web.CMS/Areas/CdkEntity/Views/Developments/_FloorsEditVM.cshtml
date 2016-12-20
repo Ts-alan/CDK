@@ -1,0 +1,279 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.Development
+
+<script>
+    ko.validation.rules['nullableDecimal'] = {
+        validator: function (val, validate) {
+            return val === null || val === "" || val === undefined || (validate && /^-?\d*(?:\.\d*)?$/.test(val.toString()));
+        },
+        message: 'Must be empty or a decimal value'
+    };
+
+    ko.validation.rules['imagerequared'] = {
+        validator: function (val) {
+            return val;
+        },
+        message: 'You must select image'
+    };
+
+    ko.validation.registerExtenders();
+
+    ko.validation.init({
+        errorElementClass: 'validationMessage',
+        grouping: {
+            deep: true,
+            live: true,
+            observable: true
+        }
+    });
+</script>
+
+<script>
+    var urlFix = "@(Model != null ? Model.PhotoStorageUrl : "")";
+
+    var FloorPlan = function (data) {
+        var self = this;
+        if (!data) {
+            data = {};
+        }
+
+        self.DevelopmentId = ko.observable(data.DevelopmentId);
+        self.Name = ko.observable(data.Name);
+        self.Type = ko.observable(data.Type);
+        self.Beds = ko.observable(data.Beds);
+        self.Baths = ko.observable(data.Baths);
+        self.PropertyTaxe = ko.observable(data.PropertyTaxe);
+        self.InteriorSize = ko.observable(data.InteriorSize);
+        self.OwnershipType = ko.observable(data.OwnershipType);
+        self.CondoMonthlyFees = ko.observable(data.CondoMonthlyFees);
+        self.BalconeySize = ko.observable(data.BalconeySize);
+        self.SequenceNumber = ko.observable(data.SequenceNumber);
+        self.PropertyTaxePeriod = ko.observable(data.PropertyTaxePeriod);
+        self.CondoFeesPeriod = ko.observable(data.CondoFeesPeriod);
+        self.InteriorSizeType = ko.observable(data.InteriorSizeType);
+        self.BalconeySizeType = ko.observable(data.BalconeySizeType);
+        self.PhotoName = ko.observable(data.PhotoName);
+        self.PhotoAlt = ko.observable(data.PhotoAlt);
+        self.PhotoType = ko.observable(data.PhotoType);
+        self.LargeUri = ko.observable(data.LargeUri);
+        self.SmallUri = ko.observable(data.SmallUri);
+        self.ThumbnailUri = ko.observable(data.ThumbnailUri);
+        self.PhotoDescription = ko.observable(data.PhotoDescription);
+        self.IsDeleted = ko.observable(data.IsDeleted);
+        self.Base64String = ko.observable(data.Base64String);
+        self.Id = ko.observable(data.Id);
+        self.LastUpdate = ko.observable(data.LastUpdate);
+        self.Created = ko.observable(data.Created);
+        self.CreatedBy = ko.observable(data.CreatedBy);
+        self.LastUpdateBy = ko.observable(data.LastUpdateBy);
+        self.SeoCaption = ko.observable(data.SeoCaption);
+        self.SeoDescription = ko.observable(data.SeoDescription);
+        self.SeoKeywords = ko.observable(data.SeoKeywords);
+        self.SeoSlug = ko.observable(data.SeoSlug);
+        self.SeoTitle = ko.observable(data.SeoTitle);
+        self.SeoMetaDescription = ko.observable(data.SeoMetaDescription);
+        self.SeoURI = ko.observable(data.SeoURI);
+
+        self.fileData = ko.observable({
+            file: ko.observable(),
+            binaryString: ko.observable(),
+            text: ko.observable(),
+            dataURL: ko.observable(),
+            arrayBuffer: ko.observable(),
+            base64String: ko.observable(),
+        });
+
+        self.FixedImageUrl = ko.computed(function () {
+            return urlFix + self.LargeUri();
+        }, self);
+
+        self.ImageUrl = ko.computed(function () {
+            if (self.fileData().dataURL()) {
+                return self.fileData().dataURL();
+            }
+
+            if (self.LargeUri()) {
+                return urlFix + self.LargeUri();
+            }
+
+            if (self.Base64String()) {
+                return 'data:' + self.PhotoType() + ';base64,' + self.Base64String();
+            }
+
+            return false;
+        }, self);
+
+        self.fileData().base64String.subscribe(function (value) {
+            self.Base64String(value)
+        });
+
+        self.fileData().file.subscribe(function (value) {
+            var fileData = self.fileData().file();
+
+            self.PhotoType(fileData ? fileData.type : '');
+        });
+
+        self.HasImage = ko.computed(function () {
+            return self.ImageUrl();
+        }, self);
+
+        self.onClear = function (fileData) {
+            if (confirm('Are you sure?')) {
+                fileData.clear && fileData.clear();
+            }
+        };
+
+        self.validationObject = ko.validatedObservable({
+            PhotoName: self.PhotoName.extend({
+                required: true,
+                maxLength: 255
+            }),
+            Name: self.Name.extend({
+                required: true,
+                maxLength: 255
+            }),
+            Type: self.Type.extend({
+                maxLength: 255
+            }),
+            Beds: self.Beds.extend({
+                maxLength: 255
+            }),
+            Baths: self.Baths.extend({
+                maxLength: 255
+            }),
+            PropertyTaxe: self.PropertyTaxe.extend({
+                maxLength: 255
+            }),
+            InteriorSize: self.InteriorSize.extend({
+                maxLength: 255
+            }),
+            OwnershipType: self.OwnershipType.extend({
+                maxLength: 255
+            }),
+            BalconeySize: self.BalconeySize.extend({
+                maxLength: 255
+            }),
+            PropertyTaxePeriod: self.PropertyTaxePeriod.extend({
+                maxLength: 255
+            }),
+            CondoFeesPeriod: self.CondoFeesPeriod.extend({
+                maxLength: 255
+            }),
+            InteriorSizeType: self.InteriorSizeType.extend({
+                maxLength: 255
+            }),
+            BalconeySizeType: self.BalconeySizeType.extend({
+                maxLength: 255
+            }),
+            HasImage: self.HasImage.extend({
+                imagerequared: true
+            }),
+            SeoCaption: self.SeoCaption.extend({
+                maxLength: 255
+            }),
+            SeoKeywords: self.SeoKeywords.extend({
+                maxLength: 255
+            })
+        });
+    };
+
+    var FloorPlansModel = function (floorPlans) {
+        var self = this;
+        self.floors = ko.observableArray(ko.utils.arrayMap(floorPlans, function (floorPlan) {
+            return new FloorPlan(floorPlan);
+        }));
+
+        self.selected = ko.observable();
+
+        self.selected.subscribe(function (value) {
+            if (value) {
+                $('.buttons-block').hide();
+                $('ul.nav.nav-tabs li:not(.active)').hide();
+            } else {
+                $('.buttons-block').show();
+                $('ul.nav.nav-tabs li:not(.active)').show();
+            }
+        });
+
+        self.editOk = function () {
+
+            var result = ko.validation.group(self.validationObject, { deep: true });
+
+            if (!self.validationObject.isValid()) {
+                result.showAllMessages(true);
+
+                return;
+            }
+
+            self.selected(null);
+        };
+
+        self.editCancelNew = function () {
+            var item = self.selected();
+            self.selected(null);
+            self.floors.remove(item);
+        };
+
+        self.isSelected = function (model) {
+            return model === self.selected();
+        };
+
+        self.showEditDelete = function () {
+            if (self.selected()) {
+                return self.selected().Id();
+            }
+
+            return false;
+        };
+
+        self.isAnySelected = function () {
+            return self.selected();
+        };
+
+        self.addItem = function () {
+            var model = new FloorPlan();
+            self.selected(model);
+            self.floors.push(model);
+        };
+
+        self.isDeleted = function (model) {
+            return model.IsDeleted();
+        };
+
+        self.deleteItem = function (model) {
+            if (model.Id()) {
+                model.IsDeleted(true);
+                self.selected(null);
+            } else {
+                self.floors.remove(model);
+            }
+        }
+
+        self.restoreItem = function (model) {
+            model.IsDeleted(false);
+        }
+
+        self.validationObject = ko.validatedObservable({
+            floors: self.floors
+        });
+
+        $("form").on('submit', function (e) {
+            if (self.validationObject.isValid()) {
+                var json = ko.toJS(self.floors);
+
+                json.forEach(function (itex, index) {
+                    itex.SequenceNumber = index;
+                });
+
+                $("form input#FloorsPlanJSON").val(JSON.stringify(json, null, 2))
+            } else {
+                e.preventDefault();
+                e.stopPropagation();
+
+                return false;
+            }
+
+        })
+    };
+
+    ko.applyBindings(new FloorPlansModel(@Html.Raw(Model != null ? Model.DevelopmentFloorsPlanJSON() : "[]")), document.getElementById("floorsForm"));
+</script>

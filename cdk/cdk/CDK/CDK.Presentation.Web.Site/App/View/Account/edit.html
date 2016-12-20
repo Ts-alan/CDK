@@ -1,0 +1,77 @@
+﻿<section class="medium-content offset-md-content" ng-controller="accountController">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="blue-notice text-center">
+                    Condodork member since {{user.CreatedDate | date:'MMMM dd, yyyy'}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="form-sm-wrapper">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="example@email.com" ng-model="user.Email">
+                    </div>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" ng-model="user.FirstName">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" ng-model="user.LastName">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" placeholder="+1 23 456 78 99" ng-model="user.PhoneNumber">
+                    </div>
+                    <div ng-show="userError" class="alert alert-danger">
+                        <p ng-repeat='item in userError.Messages'>
+                            {{item}}
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm-width text-center" ng-click="updateUser()">Save</button>
+                    <a href="" id="account-change-password-open-js" class="link-small-center" ng-show="!passwordChangeShow" ng-click="passwordChangeShow = true">Change password</a>
+                </div>
+            </div>
+            <div class="col-md-4" ng-show="passwordChangeShow">
+                <div class="form-sm-wrapper form-sm-wrapper-left">
+                    <div class="form-group">
+                        <label>Old password</label>
+                        <input type="password" class="form-control" placeholder="" ng-model="passwordModel.oldPassword">
+                    </div>
+                    <div class="form-group">
+                        <label>New password</label>
+                        <input type="password" class="form-control" placeholder="" ng-model="passwordModel.newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm new password</label>
+                        <input type="password" class="form-control" placeholder="" ng-model="passwordModel.confirmPassword">
+                    </div>
+                    <div ng-show="error" class="alert alert-danger">
+                        <p ng-repeat='item in error.Messages'>
+                            {{item}}
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm-width text-center" ng-click="updatePassword()">Change</button>
+                    <a href="#" id="account-change-password-close-js" class="link-small-center" ng-click="passwordChangeShow = false">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="form-sm-wrapper social-profile-links">
+                    <div class="form-group">
+                        <label for="fbprofile">Facebook profile</label>
+                        <input type="text" class="form-control form-control-grey" id="fbprofile" placeholder="/Konstantin">
+                    </div>
+                    <div class="form-group">
+                        <label for="gprofile">G+ profile</label>
+                        <input type="text" class="form-control form-control-grey" id="gprofile" placeholder="/123456789">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</section>

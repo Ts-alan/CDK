@@ -1,0 +1,225 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.IPhotoContainerModel
+
+
+<script>
+    ko.validation.rules['imagerequared'] = {
+        validator: function (val) {
+            return val;
+        },
+        message: 'You must select image'
+    };
+
+    ko.validation.registerExtenders();
+
+    ko.validation.init({
+        errorElementClass: 'validationMessage',
+        grouping: {
+            deep: true,
+            live: true,
+            observable: true
+        }
+    });
+</script>
+
+<script>
+    var urlFix = "@(Model != null ? Model.PhotoStorageUrl : "")";
+
+    var Photo = function (photo) {
+        var self = this;
+
+        if (!photo) {
+            photo = {};
+        }
+
+        self.Id = ko.observable(photo.Id);
+
+        self.PhotoName = ko.observable(photo.PhotoName);
+        self.LargeUri = ko.observable(photo.LargeUri);
+        self.ThumbnailUri = ko.observable(photo.ThumbnailUri);
+        self.PhotoDescription = ko.observable(photo.PhotoDescription);
+        self.PhotoAlt = ko.observable(photo.PhotoAlt);
+
+        self.SequenceNumber = ko.observable(photo.SequenceNumber);
+        self.IsDeleted = ko.observable(photo.IsDeleted);
+
+        self.Base64String = ko.observable(photo.Base64String);
+        self.PhotoType = ko.observable(photo.PhotoType);
+
+        self.SeoCaption = ko.observable(photo.SeoCaption);
+        self.SeoDescription = ko.observable(photo.SeoDescription);
+        self.SeoKeywords = ko.observable(photo.SeoKeywords);
+        self.SeoSlug = ko.observable(photo.SeoSlug);
+        self.SeoTitle = ko.observable(photo.SeoTitle);
+        self.SeoMetaDescription = ko.observable(photo.SeoMetaDescription);
+        self.SeoURI = ko.observable(photo.SeoURI);
+
+        self.fileData = ko.observable({
+            file: ko.observable(),
+            binaryString: ko.observable(),
+            text: ko.observable(),
+            dataURL: ko.observable(),
+            arrayBuffer: ko.observable(),
+            base64String: ko.observable(),
+        });
+
+
+        self.FixedImageUrl = ko.computed(function () {
+            return urlFix + self.LargeUri();
+        }, self);
+
+        self.ImageUrl = ko.computed(function () {
+            if (self.fileData().dataURL()) {
+                return self.fileData().dataURL();
+            }
+
+            if (self.LargeUri()) {
+                return urlFix + self.LargeUri();
+            }
+
+            if (self.Base64String()) {
+                return 'data:' + self.PhotoType() + ';base64,' + self.Base64String();
+            }
+
+            return false;
+        }, self);
+
+        self.fileData().base64String.subscribe(function (value) {
+            self.Base64String(value)
+        });
+
+        self.fileData().file.subscribe(function (value) {
+            var fileData = self.fileData().file();
+
+            self.PhotoType(fileData ? fileData.type : '');
+        });
+
+        self.HasImage = ko.computed(function () {
+            return self.ImageUrl();
+        }, self);
+
+        self.onClear = function (fileData) {
+            if (confirm('Are you sure?')) {
+                fileData.clear && fileData.clear();
+            }
+        }
+
+        self.validationObject = ko.validatedObservable({
+            PhotoName: self.PhotoName.extend({
+                required: true,
+                maxLength: 60
+            }),
+            HasImage: self.HasImage.extend({
+                imagerequared: true
+            }),
+            SeoCaption: self.SeoCaption.extend({
+                maxLength: 255
+            }),
+            SeoKeywords: self.SeoKeywords.extend({
+                maxLength: 255
+            })
+        });
+
+    };
+
+    var PhotosModel = function (photos) {
+        var self = this;
+        self.photos = ko.observableArray(ko.utils.arrayMap(photos, function (photo) {
+            return new Photo(photo);
+        }));
+
+        self.selected = ko.observable();
+
+        self.selected.subscribe(function (value) {
+            if (value) {
+                $('.buttons-block').hide();
+                $('ul.nav.nav-tabs li:not(.active)').hide();
+            } else {
+                $('.buttons-block').show();
+                $('ul.nav.nav-tabs li:not(.active)').show();
+            }
+        });
+
+        self.editOk = function () {
+
+            var result = ko.validation.group(self.validationObject, { deep: true });
+
+            if (!self.validationObject.isValid()) {
+                result.showAllMessages(true);
+
+                return;
+            }
+
+            self.selected(null);
+        };
+
+        self.editCancelNew = function () {
+            var item = self.selected();
+            self.selected(null);
+            self.photos.remove(item);
+        };
+
+        self.isSelected = function (model) {
+            return model === self.selected();
+        };
+
+
+        self.showEditDelete = function () {
+            if (self.selected()) {
+                return self.selected().Id();
+            }
+
+            return false;
+        };
+
+        self.isAnySelected = function () {
+            return self.selected();
+        };
+
+        self.addItem = function () {
+            var model = new Photo();
+            self.selected(model);
+            self.photos.push(model);
+        };
+
+        self.isDeleted = function (model) {
+            return model.IsDeleted();
+        };
+
+        self.deleteItem = function (model) {
+            if (model.Id()) {
+                model.IsDeleted(true);
+                self.selected(null);
+            } else {
+                self.photos.remove(model);
+            }
+        }
+
+        self.restoreItem = function (model) {
+            model.IsDeleted(false);
+        }
+
+        self.validationObject = ko.validatedObservable({
+            photos: self.photos
+        });
+
+        $("form").on('submit', function (e) {
+            if (self.validationObject.isValid()) {
+                var json = ko.toJS(self.photos);
+
+                json.forEach(function (itex, index) {
+                    itex.SequenceNumber = index;
+                });
+
+                $("form input#PhotoJSON").val(JSON.stringify(json, null, 2))
+            } else {
+                e.preventDefault();
+                e.stopPropagation();
+
+                return false;
+            }
+
+        })
+    };
+
+    ko.applyBindings(new PhotosModel(@Html.Raw(Model != null ? Model.PhotoListJSON() : "[]")), document.getElementById("photosForm"));
+</script>

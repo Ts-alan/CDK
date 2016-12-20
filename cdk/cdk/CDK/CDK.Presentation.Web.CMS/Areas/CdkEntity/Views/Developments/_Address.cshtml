@@ -1,0 +1,102 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.Development
+
+<div id="addressForm">
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.NeighborhoodAreaId, "Neighborhood Area", new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.DevelopmentAddress.NeighborhoodAreaId, (IEnumerable<SelectListItem>)ViewBag.NeighborhoodAreas, string.Empty)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.NeighborhoodAreaId)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.StreetAddress, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.StreetAddress)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.StreetAddress)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.City, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.City)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.City)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.CountryState, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.DevelopmentAddress.CountryState, Html.CountryStateList())
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.CountryState)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.PostalCode, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.PostalCode)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.PostalCode)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.Country, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.Country)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.Country)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.StreetType, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.StreetType)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.StreetType)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.AdditionalStreetInfo, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.AdditionalStreetInfo)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.AdditionalStreetInfo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevelopmentAddress.CommunityName, new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DevelopmentAddress.CommunityName)
+            @Html.ValidationMessageFor(model => model.DevelopmentAddress.CommunityName)
+        </div>
+    </div>
+</div>

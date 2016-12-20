@@ -1,0 +1,18 @@
+﻿<div ng-if="images.length==1">
+
+    <img ng-src="{{images[0].LargeUri}}"  alt="{{images[0].AltText}}" />
+</div>
+<div ng-if="images.length!=1">
+
+    <slick class="slider-for" settings="slickConfig" ng-if="numberLoaded">
+        <div ng-repeat="image in images" class="slider-for-item">
+            <img ng-src="{{image.LargeUri}}" alt="{{image.AltText}}" />
+        </div>
+    </slick>
+    <slick settings="slick2Config" class="slider-nav clearfix" ng-if="numberLoaded">
+        <div ng-repeat="image in images" class="slider-for-item" style="margin-bottom: 5px">
+            <img ng-src="{{image.SmallUri}}" alt="{{image.AltText}}" />
+        </div>
+    </slick>
+</div>
+

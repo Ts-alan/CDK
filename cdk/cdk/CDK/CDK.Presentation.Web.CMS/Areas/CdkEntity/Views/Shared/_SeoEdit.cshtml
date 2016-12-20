@@ -1,0 +1,76 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.ISeoModel
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoCaption, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoCaption)
+        @Html.ValidationMessageFor(model => model.SeoCaption)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoDescription, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoDescription)
+        @Html.ValidationMessageFor(model => model.SeoDescription)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoKeywords, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoKeywords)
+        @Html.ValidationMessageFor(model => model.SeoKeywords)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoSlug, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoSlug)
+        @Html.ValidationMessageFor(model => model.SeoSlug)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoTitle, new
+{
+    @class = "control-label col-md-2"
+})
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoTitle)
+        @Html.ValidationMessageFor(model => model.SeoTitle)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoMetaDescription, new
+{
+    @class = "control-label col-md-2"
+})
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoMetaDescription)
+        @Html.ValidationMessageFor(model => model.SeoMetaDescription)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.SeoURI, new
+{
+    @class = "control-label col-md-2"
+})
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SeoURI)
+        @Html.ValidationMessageFor(model => model.SeoURI)
+    </div>
+</div>

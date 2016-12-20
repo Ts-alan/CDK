@@ -1,0 +1,5 @@
+e:\Cdk\cdk\cdk\CDK\CDK.ETL.DDF\bin\Debug\CDK.ETL.DDF.dll
+e:\Cdk\cdk\cdk\CDK\CDK.ETL.DDF\bin\Debug\CDK.ETL.DDF.pdb
+e:\Cdk\cdk\cdk\CDK\CDK.ETL.DDF\obj\Debug\CDK.ETL.DDF.csprojResolveAssemblyReference.cache
+e:\Cdk\cdk\cdk\CDK\CDK.ETL.DDF\obj\Debug\CDK.ETL.DDF.dll
+e:\Cdk\cdk\cdk\CDK\CDK.ETL.DDF\obj\Debug\CDK.ETL.DDF.pdb

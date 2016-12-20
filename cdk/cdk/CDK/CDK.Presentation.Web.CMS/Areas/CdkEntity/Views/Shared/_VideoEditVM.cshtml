@@ -1,0 +1,156 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.IVideoContainerModel
+
+
+<script>
+    var youtubeReqExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+
+    ko.validation.rules['youtubelink'] = {
+        validator: function (val) {
+            val = val || '';
+
+            return (val.match(youtubeReqExp)) ? RegExp.$1 : false;
+        },
+        message: 'Must be YouTube Link'
+    };
+
+    ko.validation.registerExtenders();
+
+    ko.validation.init({
+        grouping: {
+            deep: true,
+            live: true,
+            observable: true
+        }
+    });
+
+
+    function idYoutube(url) {
+        url = url || '';
+
+        return (url.match(youtubeReqExp)) ? RegExp.$1 : '';
+    };
+
+    function getThumbnail(url) {
+        var id = idYoutube(url);
+
+        if (id === '') {
+            return false;
+        }
+
+        return "http://img.youtube.com/vi/" + id + "/hqdefault.jpg"
+    }
+
+</script>
+
+<script>
+    var Video = function (data) {
+        var self = this;
+        
+        if (!data) {
+            data = {};
+        }
+
+        self.Id = ko.observable(data.Id);
+        self.Uri = ko.observable(data.Uri);
+        self.SequenceNumber = ko.observable(data.SequenceNumber);
+        self.Name = ko.observable(data.Name);
+        self.Description = ko.observable(data.Description);
+        self.IsDeleted = ko.observable(data.IsDeleted);
+        self.SeoCaption = ko.observable(data.SeoCaption);
+        self.SeoDescription = ko.observable(data.SeoDescription);
+        self.SeoKeywords = ko.observable(data.SeoKeywords);
+        self.SeoSlug = ko.observable(data.SeoSlug);
+        self.SeoTitle = ko.observable(data.SeoTitle);
+        self.SeoMetaDescription = ko.observable(data.SeoMetaDescription);
+        self.SeoURI = ko.observable(data.SeoURI);
+        self.AltText = ko.observable(data.AltText);
+
+        self.Thumbnail = ko.computed(function () {
+            return getThumbnail(self.Uri());
+        }, self);
+
+        self.validationObject = ko.validatedObservable({
+            Uri: self.Uri.extend({
+                youtubelink: true
+            }),
+            Name: self.Name.extend({
+                required: true
+            }),
+            SeoCaption: self.SeoCaption.extend({
+                maxLength: 255
+            }),
+            SeoKeywords: self.SeoKeywords.extend({
+                maxLength: 255
+            })
+        });
+
+    };
+
+    var VideosModel = function (videos) {
+        var self = this;
+        self.videos = ko.observableArray(ko.utils.arrayMap(videos, function (video) {
+            return new Video(video);
+        }));
+
+        self.selected = ko.observable();
+
+        self.clearSelected = function (data, event) {
+            if (data === self.selected()) {
+                self.selected(null);
+            }
+        };
+
+        self.isSelected = function (model) {
+            return model === self.selected();
+        };
+
+        self.addItem = function () {
+            var model = new Video();
+            self.selected(model);
+            self.videos.push(model);
+        };
+
+        self.isDeleted = function (model) {
+            return model.IsDeleted();
+        };
+
+        self.beforeMoveCallback = function (arg, e, ui) {
+        };
+
+        self.afterMoveCallback = function (arg, e, ui) {
+        };
+
+        self.deleteItem = function (model) {
+            model.IsDeleted(true);
+            self.selected(null);
+        }
+
+        self.restoreItem = function (model) {
+            model.IsDeleted(false);
+        }
+
+        self.validationObject = ko.validatedObservable({
+            videos: self.videos
+        });
+
+        $("form").on('submit', function (e) {
+            if (self.validationObject.isValid()) {
+                var json = ko.toJS(self.videos);
+
+                json.forEach(function (itex, index) {
+                    itex.SequenceNumber = index;
+                });
+
+                $("form input#VideosJSON").val(JSON.stringify(json, null, 2))
+            } else {
+                e.preventDefault();
+                e.stopPropagation();
+
+                return false;
+            }
+
+        })
+    };
+
+    ko.applyBindings(new VideosModel(@Html.Raw(Model != null ? Model.VideoListJSON() : "[]")), document.getElementById("videosForm"));
+</script>

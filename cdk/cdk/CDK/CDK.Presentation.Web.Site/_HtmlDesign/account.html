@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+  <title>CD Account</title>
+
+<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+<link rel="stylesheet" href="../Content/Site.min.css">
+
+    <!--[if IE]>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="../Scripts/jquery-2.2.3.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/js/custom.js"></script>
+
+</head>
+<body class="account">
+  <div class="page">
+        <div class="over-layer"></div>
+        <header>
+          <div class="navbar" id="slide-nav">
+            <div class="container-fluid first-row-navigation">
+             <div class="navbar-header">
+               <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#slidemenu" aria-expanded="true">
+                 <span class="icon-bar"></span>
+               </a>
+              <a class="navbar-brand" href="/"></a>
+             </div>
+             <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Select a city</a></li>
+                 <li><a href="#">Buy</a></li>
+                 <li><a href="#">Rent</a></li>
+                 <li><a href="#">Professionals</a></li>
+                 <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More +</a>
+                   <ul class="dropdown-menu">
+                     <li><a href="#">News</a></li>
+                     <li><a href="#">News</a></li>
+                   </ul>
+                 </li>
+                  <li class="divider"></li>
+                 <li><a href="#">Saved condos <span>0</span></a></li>
+                 <li><a href="#">Saved searches <span>0</span></a></li>
+                 <li class="unsigned"><a href="#">Sign In</a></li>
+                </ul>
+             </div>
+            </div>
+            <div class="container-fluid next-row-navigation text-center font-0">
+                <ul class="nav navbar-nav navbar-center">
+                 <li><a href="#">Saved Searches</a></li>
+                 <li><a href="#">Saved Condos</a></li>
+                 <li><a href="#">Recently Viewed</a></li>
+                 <li class="active"><a href="#">My Account</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
+          </div>
+        </header>
+        <section class="medium-content offset-md-content">
+
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <p class="blue-notice text-center">
+                  Condodork member since March 28, 2016
+                </p>
+              </div>
+            </div>
+            <form>
+            <div class="row">
+              <div class="col-md-offset-4 col-md-4">
+                <div class="form-sm-wrapper">
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Full name</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Konstantin">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Phone</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="+1 23 456 78 99">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm-width text-center">Save</button>
+                    <a href="#" id="account-change-password-open-js" class="link-small-center" >Change password</a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-sm-wrapper form-sm-wrapper-left want-change-password">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Old password</label>
+                      <input type="password" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">New password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Confirm new password</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm-width text-center">Change</button>
+                    <a href="#" id="account-change-password-close-js" class="link-small-center">Cancel</a>
+                </div>
+              </div>
+            </div>
+            </form>
+            <div class="row">
+              <div class="col-md-offset-4 col-md-4">
+                <div class="form-sm-wrapper social-profile-links">
+                  <div class="form-group">
+                    <label for="fbprofile">Facebook profile</label>
+                    <input type="text" class="form-control form-control-grey" id="fbprofile" placeholder="/Konstantin">
+                  </div>
+                  <div class="form-group">
+                    <label for="gprofile">G+ profile</label>
+                    <input type="text" class="form-control form-control-grey" id="gprofile" placeholder="/123456789">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      <div class="helper"></div>
+      <footer>
+        <div class="container-fluid">
+          <div class="footer-bg">
+            <div class="row">
+              <div class="col-xs-12">
+                <a href="/" class="brand"></a>
+              </div>
+            </div>
+            <div class="row" id="accordion">
+              <div class="col-xs-12 col-sm-5 col-md-4">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseOne" data-parent="#accordion" aria-expanded="false">REAL ESTATE</h4>
+                  <div id="collapseOne" class="footer-col-content collapse">
+                    <ul>
+                      <li><a href="#">Toronto</a></li>
+                      <li><a href="#">Mississauga</a></li>
+                      <li><a href="#">Brampton</a></li>
+                      <li><a href="#">Vaughan</a></li>
+                      <li><a href="#">Markham</a></li>
+                      <li><a href="#">Oakville</a></li>
+                      <li><a href="#">Richmond Hill</a></li>
+                      <li><a href="#">Calgary</a></li>
+                      <li><a href="#">Edmonton</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3 col-md-5">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion" aria-expanded="false">MENU</h4>
+                  <div id="collapseTwo" class="footer-col-content collapse">
+                    <ul>
+                      <li><a href="#">Buy</a></li>
+                      <li><a href="#">Rent</a></li>
+                      <li><a href="#">Professionals</a></li>
+                      <li><a href="#">Saved Searches</a></li>
+                      <li><a href="#">Saved Condos</a></li>
+                      <li><a href="#">Recently Viewed</a></li>
+                      <li><a href="#">My Account</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Privacy & Terms of Use</a></li>
+                      <li><a href="#">Sitemap</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseThree" data-parent="#accordion" aria-expanded="false">CONDODORK OFFICES</h4>
+                  <div id="collapseThree" class="footer-col-content collapse">
+                    <address>
+                      <p>Realty, Brokerage</p>
+                      <p>2nd Floor - 170 University Ave.</p>
+                      <p>Toronto, ON, M5H 3B3</p>
+                      <p>416-898-8932</p>
+                    </address>
+                    <address>
+                      <p>Realty (BC) Inc.</p>
+                      <p>103-119 West Pender St.</p>
+                      <p>Vancouver, BC, V6B 1S5</p>
+                      <p>604-239-1671</p>
+                    </address>
+                    <address>
+                      <p>Realty (Alberta) Inc.</p>
+                      <p>125 Hidden Cove</p>
+                      <p>Calgary, AB</p>
+                      <p>587-889-6567</p>
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-9 trademarks-col">
+                <div class="trademarks"></div>
+                <span class='trademarks-note'>MLS®, Realtor®, & associated logos are trademarks of The Canadian Real Estate Association</span>
+              </div>
+              <div class="col-xs-12 col-md-3 social-icons-col">
+                <a href="#" class="icon socicon-facebook"></a>
+                <a href="#" class="icon socicon-googleplus"></a>
+                <a href="#" class="icon socicon-pinterest"></a>
+                <a href="#" class="icon socicon-twitter"></a>
+                <a href="#" class="icon socicon-linkedin"></a>
+                <a href="#" class="icon socicon-youtube"></a>
+                <a href="#" class="icon socicon-instagram"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>

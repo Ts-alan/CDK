@@ -1,0 +1,10 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
+  "webJobName": "CdkWebJob",
+  "startTime": null,
+  "endTime": null,
+  "jobRecurrenceFrequency": null,
+  "interval": null,
+  "runMode": "OnDemand",
+  "stopping_wait_time": 172800
+}

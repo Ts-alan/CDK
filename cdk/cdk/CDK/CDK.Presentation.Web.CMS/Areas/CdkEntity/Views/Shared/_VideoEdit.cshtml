@@ -1,0 +1,97 @@
+﻿<div id="videosForm">
+    <a href="#" data-bind="click: addItem" class="btn btn-primary">Add</a>
+    <br />
+    <div class="row" style="border-bottom: 2px solid #000; font-weight: bold;">
+        <div class="col-md-1">Order</div>
+
+        <div class="col-md-1">Preview</div>
+
+        <div class="col-md-2">Name</div>
+
+        <div class="col-md-1">Description</div>
+
+        <div class="col-md-2">Link to video</div>
+
+        <div class="col-md-3">Seo</div>
+
+        <div class="col-md-2">Actions</div>
+    </div>
+
+    <div data-bind="sortable: { template: 'videoTmpl', data: videos, connectClass: 'video-item', afterMove: afterMoveCallback, beforeMove: beforeMoveCallback }"></div>
+
+    <script id="videoTmpl" type="text/html">
+        <div class="form-horizontal video-item" style="background-color: white;">
+            <div class="row">
+                <div class="col-md-1"><span data-bind="text: $index"></span></div>
+                <div class="col-md-1">
+                    <div data-bind="visible: Thumbnail">
+                        <img style="height: 80px;" class="img-rounded  thumb" data-bind="attr: { src: Thumbnail }">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input class="text-box single-line" data-bind="value: Name" name="Name" type="text">
+                </div>
+                <div class="col-md-1">
+                    <textarea class="text-box single-line" data-bind="value: Description" name="Description" />
+                </div>
+                <div class="col-md-2">
+                    <input class="text-box single-line" data-bind="value: Uri" name="Uri" placeholder="Link to video" type="text">
+                    <input class="text-box single-line"
+                           data-val="true"
+                           data-val-maxlength="The field Alt Text must be a string or array type with a maximum length of '255'."
+                           data-val-maxlength-max="255"
+                           name="AltText"
+                           type="text"
+                           aria-describedby="AltText-error"
+                           data-bind="value: AltText"
+                           placeholder="Alt Text">
+                    <br />
+                    <a data-bind="visible: Thumbnail, attr: {href: Uri}" target="_blank">Link</a>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-6">
+                        <input class="text-box single-line valid" data-val="true" placeholder="Seo Caption" data-val-maxlength="The field Seo Caption must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255"
+                               name="SeoCaption"
+                               type="text"
+                               aria-describedby="SeoCaption-error"
+                               data-bind="value: SeoCaption">
+                        <input class="text-box single-line valid"
+                               data-val="true"
+                               data-val-maxlength="The field Seo Keywords must be a string or array type with a maximum length of '255'."
+                               data-val-maxlength-max="255"
+                               name="SeoKeywords" 
+                               type="text"
+                               aria-describedby="SeoKeywords-error"
+                               data-bind="value: SeoKeywords"
+                               placeholder="Seo Keywords">
+
+                        <input class="text-box single-line" 
+                               data-val="true" 
+                               data-val-maxlength="The field Seo Title must be a string or array type with a maximum length of '255'." 
+                               data-val-maxlength-max="255" 
+                               name="SeoTitle" 
+                               type="text" 
+                               data-bind="value: SeoTitle"
+                               placeholder="Seo Title">
+
+                        <input class="text-box single-line" placeholder="Seo URI" name="SeoURI" type="url" data-bind="value: SeoURI">
+                    </div>
+                    <div class="col-md-6">
+                        <textarea class="text-box multi-line" placeholder="Seo Description" name="SeoDescription" data-bind="value: SeoDescription"></textarea>
+
+                        <textarea class="text-box multi-line" placeholder="Seo Slug" name="SeoSlug" data-bind="value: SeoSlug"></textarea>
+
+                        <textarea class="text-box multi-line" placeholder="Seo Meta Description" name="SeoMetaDescription" data-bind="value: SeoMetaDescription"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" data-bind="visible: !$root.isDeleted($data),click: $root.deleteItem" class="btn btn-danger">Delete</a>
+
+                    <a href="#" data-bind="visible: $root.isDeleted($data), click: $root.restoreItem" class="btn btn-default">Restore</a>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+<br />
+<br />

@@ -1,0 +1,44 @@
+﻿
+<div class="map-container">
+    <div id="map-result-controll">
+
+    </div>
+</div>
+
+<div class="thumbnails-container">
+    <div ng-hide="isLoading">
+        <spinner></spinner>
+        
+    </div>
+    <div style="text-align: center; margin-top: 250px" ng-show="!items.total && isLoading">
+        <img style="width: 200px" src="/Content/images/search-icon.svg">
+        <h1>sorry no results found </h1>
+    </div>
+    <div ng-show="items.total">
+        <div class="clearfix small-size full-row20 text-center sorting-row">
+            <div class="pull-left text-left">
+                <div class="dropdown range-list-item full-row-select">
+
+                    <drop-down-for-sort-by-unit></drop-down-for-sort-by-unit>
+                </div>
+            </div>
+            <string-for-gallery></string-for-gallery>
+
+            <div class="pull-right">
+                <nav>
+                    <pagination-up-for-unit></pagination-up-for-unit>
+                </nav>
+            </div>
+        </div>
+        <gallery></gallery>
+        <div class="clearfix"></div>
+        <div class="pagination-row text-center">
+            <nav>
+                <pagination-down-for-unit ng-if="items.total"></pagination-down-for-unit>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+

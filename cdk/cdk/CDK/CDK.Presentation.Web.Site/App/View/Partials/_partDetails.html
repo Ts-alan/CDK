@@ -1,0 +1,15 @@
+﻿<div  class="container-fluid next-row-navigation  bottom-main-nav" >
+    <div class="container">
+       <ul class="nav navbar-nav details-header-nav">
+            <h1>{{data.StreetAddress}}</h1>
+            <p>{{data.PostalCode}} {{data.City}} {{data.Country}}</p>
+        </ul>
+        <ul class="nav navbar-nav navbar-right favorite-nav">
+           <li ng-if="data.Type=='Unit'" class="add-to-fav-link">
+                <a href="#" class="favorite">
+                    <span>Add to your favourites</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

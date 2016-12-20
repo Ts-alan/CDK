@@ -1,0 +1,5 @@
+﻿<ul class="pager">
+    <li ng-show="((page-1)*12 + 1)!=1"><a href="#" ng-click="firstPage()"></a></li>
+    <li>{{(page-1)*12 + 1}} – {{(page*12 + 1)>items.total?items.total:(page*12 + 1)}} of {{items.total}} Results </li>
+    <li ng-hide="(page*12 + 1)>=items.total" ><a ng-click="lastPage()" href="#"></a></li>
+</ul>

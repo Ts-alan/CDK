@@ -1,0 +1,34 @@
+﻿<div class="bottom-main-nav-wrapper">
+    <div class="container-fluid bottom-main-nav">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <neighborhood-select></neighborhood-select>
+            </li>
+            <li id="bedsLists">
+                <div ng-dropdown-multiselect=""
+                     options="beds"
+                     selected-model="selectedBeds"
+                     checkboxes="true"
+                     events="{onItemSelect: onItemSelect, onItemDeselect: onItemDeselect}"
+                     extra-settings="{showCheckAll: false, showUncheckAll: false, dynamicTitle: false, externalIdProp: 'Value', displayProp: 'Name', idProp: 'Value'}"
+                     translation-texts="{buttonDefaultText: 'Beds'}"></div>
+            </li>
+
+            <li price-filter-menu class="dropdown form-control range-list-item">
+
+            </li>
+            <li>
+                <div class="btn-group">
+                    <label class="btn btn-primary transaction-type-btn" ng-model="transactionType" uib-btn-radio="'0'" ng-click="transactionTypeChange('0')">For Sale</label>
+                    <label class="btn btn-primary transaction-type-btn" ng-model="transactionType" uib-btn-radio="'1'" ng-click="transactionTypeChange('1')">For Rent</label>
+                </div>
+            </li>
+            <!--<li class="save-search-item menu-sprite-item"><a href="#"><span>Save search</span></a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right switch-view-navbar" ng-hide="isMobule()">
+            <li class="map-item menu-sprite-item" ui-sref="{type:'map'}" ui-sref-active="active"><a><span>Map</span></a></li>
+            <li class="list-on-item menu-sprite-item" ui-sref="{type:'list',page:1}" ui-sref-active="active"><a><span>List</span></a></li>
+            <li class="gallery-on-item menu-sprite-item" ui-sref="{type:'gallery',page:1}" ui-sref-active="active"><a><span>Gallery</span></a></li>
+        </ul>
+    </div>
+</div>

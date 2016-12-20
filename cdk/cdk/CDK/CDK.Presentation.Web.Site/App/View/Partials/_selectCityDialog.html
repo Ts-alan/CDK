@@ -1,0 +1,20 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"></button>
+    <div class="for-img text-center">
+        <img class="welcome-logo" src="../Content/images/welcome-logo.png" alt="Condo Dork">
+    </div>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label class="text-xs-black text-center">Get started by choosing a location:</label>
+        <div class="text-center">
+            <area-select sclass="custom-select custom-select-lg" scallback="onSelectCallback()"></area-select>
+        </div>
+        <p class="text-xs-black text-center">POPULAR LOCATION:</p>
+        <div class="text-center btn-cloud btn-group-xs">
+            <a href="" ng-click="selectArea(area)" class="btn btn-info" ng-repeat="area in popularAreas">
+                {{area.Name}}
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿<ui-select ng-model="selectedNeighborhood" ng-attr-class="{{sClass || 'custom-select'}}" on-select="onSelectCallback($item)">
+    <ui-select-match placeholder="Select a Neighborhood">{{$select.selected.Name}}</ui-select-match>
+    <ui-select-choices repeat="neighborhood in neighborhoods | propsFilter: {Name: $select.search, ShortName: $select.search}"
+                       refresh="search($select.search)"
+                       refresh-delay="0">
+        <div ng-bind-html="neighborhood.Name | highlight: $select.search"></div>
+    </ui-select-choices>
+</ui-select>

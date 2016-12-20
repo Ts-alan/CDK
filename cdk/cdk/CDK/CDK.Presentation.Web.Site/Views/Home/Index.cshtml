@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="page">
+    <div class="over-layer"></div>
+    <header>
+        <div class="navbar" id="slide-nav">
+            <div class="container-fluid first-row-navigation">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-toggle" ng-click="openAside()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="navbar-brand" href="/"></a>
+                </div>
+
+                <div id="slidemenu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="" ng-click="index.openSelectCityModal()">Select a city</a></li>
+                        <li><a href="http://cdkwebmagazine.azurewebsites.net/" target="_blank">News</a></li>
+                        <li class="divider"></li>
+                        @*<li><a href="#" data-ng-hide="!index.authentication.isAuth" class="">Saved condos <span>0</span></a></li>
+                        <li><a href="#" data-ng-hide="!index.authentication.isAuth" class="">Saved searches <span>0</span></a></li>*@
+                        <li data-ng-hide="!index.authentication.isAuth" ui-sref-active="active" ui-sref="account.edit" href="/account" class="active"><a href="#">My Account</a></li>
+                        <li data-ng-hide="!index.authentication.isAuth" class=""><a href="" ng-click="index.logOut()">Sign Out</a></li>
+                        <li class="unsigned ng-hide" data-ng-hide="index.authentication.isAuth"><a href="" ng-click="index.openLoginModal()">Sign In</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div ui-view="secondnav" class="ng-scope">
+            </div>
+        </div>
+
+        <div ui-view="mapfilter" class="ng-scope">
+        </div>
+    </header>
+    <!-- uiView: body -->
+    <div class="clearfix ng-scope" ui-view="body">
+
+    </div>
+    <footer-wrapper></footer-wrapper>
+</div>
+
+

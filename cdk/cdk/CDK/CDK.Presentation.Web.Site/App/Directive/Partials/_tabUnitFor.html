@@ -1,0 +1,14 @@
+﻿
+
+<div ng-repeat="item in data | filter :  createria" class="one-unit">
+    <div class="one-unit-price">{{item.Price | currency:"$":0}}</div>
+    <div class="one-unit-list">
+        {{item.Bed}} bed, {{item.Bath}} bath <br>
+        Parking: {{item.Parking}}
+    </div>
+    <a href="{{item.UrlForPage}}" target="_blank" class="one-unit-image">
+        <span class="favorite" style="margin-top: 5px"></span>
+        <img ng-src="{{item.Photo[0].SmallUri}}" ng-alt="{{item.Photo[0].AltText}}">
+    </a>
+
+</div>

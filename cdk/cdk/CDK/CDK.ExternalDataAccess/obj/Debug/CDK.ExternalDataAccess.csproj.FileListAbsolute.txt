@@ -1,0 +1,7 @@
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\bin\Debug\CDK.ExternalDataAccess.dll
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\bin\Debug\CDK.ExternalDataAccess.pdb
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\bin\Debug\Newtonsoft.Json.dll
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\bin\Debug\Newtonsoft.Json.xml
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\obj\Debug\CDK.ExternalDataAccess.csprojResolveAssemblyReference.cache
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\obj\Debug\CDK.ExternalDataAccess.dll
+e:\Cdk\cdk\cdk\CDK\CDK.ExternalDataAccess\obj\Debug\CDK.ExternalDataAccess.pdb

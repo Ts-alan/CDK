@@ -1,0 +1,150 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.NeighborhoodArea
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Details</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details NeighborhoodArea</h5>
+                </div>
+                <div class="ibox-content">
+
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MetroAreaId)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MetroArea.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ShortName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ShortName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CenterPointLat)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CenterPointLat)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CenterPointLon)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CenterPointLon)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CoordinatesAsText)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CoordinatesAsText)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NeighborhoodAreaUri)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NeighborhoodAreaUri)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastUpdate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LastUpdate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Created)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Created)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedBy)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastUpdateBy)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LastUpdateBy)
+                        </dd>
+
+                    </dl>
+
+
+                    @Html.ActionLink("Edit", "Edit", new
+   {
+       id = Model.Id
+   }, new
+   {
+       @class = "btn btn-primary"
+   })
+                    @Html.ActionLink("Back to List", "Index", null, new
+{
+    @class = "btn btn-white"
+})
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

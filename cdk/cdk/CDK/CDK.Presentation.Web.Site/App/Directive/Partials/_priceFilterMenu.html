@@ -1,0 +1,17 @@
+﻿<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Price <span class="caret"></span></a>
+<ul class="dropdown-menu">
+    <li class="input-list-item">
+        <input type="text" class="range-input" ng-keyup="keyPressPriceMin($event)" ng-click="minValFocus()"  ng-model="PriceMin">
+        <span>to</span>
+        <input type="text" class="range-input" ng-keyup="keyPressPriceMax($event)" ng-click="maxValFocus()" ng-model="PriceMax">
+    </li>
+    <div ng-if="showMinList">
+        <li ><a  ui-sref="{minPrice:'0'}" ng-click="SetPriceMin(0)" href="#">Min</a></li>
+        <li ng-repeat="price in pricesDataMin"><a ui-sref="{minPrice:price.Price}" ng-click="SetPriceMin(price.Price)" >{{price.Price | currency:"$":0}}</a></li>
+
+    </div>
+    <div ng-if="showMaxList" class="text-right">
+        <li ng-repeat="price in pricesDataMax"><a  ui-sref="{maxPrice:price.Price}"  ng-click="SetPriceMax(price.Price)" > {{price.Price | currency:"$":0}}</a></li>
+        <li><a ui-sref="{maxPrice:'Max'}" ng-click="SetPriceMax('Max')" href="#">Max</a></li>
+    </div>
+</ul>

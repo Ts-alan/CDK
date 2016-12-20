@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+  <title>CD Login-signin</title>
+
+<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+<link rel="stylesheet" href="../Content/Site.min.css">
+
+<!--[if IE]>
+<script src="../Scripts/js/html5shiv.min.js"></script>
+<![endif]-->
+<script src="../Scripts/jquery-2.2.3.min.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>
+<script src="../Scripts/js/custom.js"></script>
+
+
+</head>
+<body class="login">
+    <!-- Modal Login SignIn -->
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#login" data-toggle="tab">Log in</a></li>
+            <li><a href="#sign-in" data-toggle="tab">Create an account</a></li>
+          </ul>
+        </div>
+        <div class="modal-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="login">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <a href="#" class="login-connect login-connect-fb form-control">Connect with Facebook</a>
+                    <a href="#" class="login-connect login-connect-g form-control">Connect with Google+</a>
+                    <p class="visible-xs text-center">OR</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label>Login:</label>
+                      <input type="text" class="form-control" id="input-login" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Password:</label>
+                      <input type="password" class="form-control" id="input-password" placeholder="" required>
+                    </div>
+                    <a href="#" class="link-xs-grey">Forgot password?</a>
+                    <div class="form-group form-group-checkbox">
+                      <p>
+                        <input type="checkbox" id="agree-keep-login" checked="checked"/>
+                        <label for="agree-keep-login">Keep me logged in</label>
+                      </p>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-sm-width text-center">Log in</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="sign-in">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <a href="#" class="login-connect login-connect-fb form-control">Connect with Facebook</a>
+                    <a href="#" class="login-connect login-connect-g form-control">Connect with Google+</a>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" class="form-control" id="input-email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Password:</label>
+                      <input type="password" class="form-control" id="input-password" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Confirm password:</label>
+                      <input type="password" class="form-control" id="input-password" placeholder="" required>
+                    </div>
+                    <div class="form-group form-group-checkbox">
+                      <p>
+                        <input type="checkbox" id="terms-agree" checked="checked"/>
+                        <label for="terms-agree">I agree to <a href="#">term of use</a></label>
+                      </p>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-sm-width text-center">Sign up</button>
+                    <p class="blue-notice text-center">
+                      Existing user? <a href="#">Log In.</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+        <div class="over-layer"></div>
+        <header>
+          <div class="navbar" id="slide-nav">
+            <div class="container-fluid first-row-navigation">
+             <div class="navbar-header">
+               <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#slidemenu" aria-expanded="true">
+                 <span class="icon-bar"></span>
+               </a>
+              <a class="navbar-brand" href="/"></a>
+             </div>
+             <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Select a city</a></li>
+                 <li class="active"><a href="#">Buy</a></li>
+                 <li><a href="#">Rent</a></li>
+                 <li><a href="#">Professionals</a></li>
+                 <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More +</a>
+                   <ul class="dropdown-menu">
+                     <li><a href="#">News</a></li>
+                     <li><a href="#">News</a></li>
+                   </ul>
+                 </li>
+                  <li class="divider"></li>
+                 <li><a href="#">Saved condos <span>0</span></a></li>
+                 <li><a href="#">Saved searches <span>0</span></a></li>
+                 <li class="unsigned"><a href="#">Sign In</a></li>
+                </ul>
+             </div>
+            </div>
+            </div>
+        </header>
+        <section class="medium-content">
+          <img src="../Content/images/map-image.jpg" alt="" style="width:100%;">
+        </section>
+      <div class="helper"></div>
+      <footer>
+        <div class="container-fluid">
+          <div class="footer-bg">
+            <div class="row">
+              <div class="col-xs-12">
+                <a href="/" class="brand"></a>
+              </div>
+            </div>
+            <div class="row" id="accordion">
+              <div class="col-xs-12 col-sm-5 col-md-4">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseOne" data-parent="#accordion" aria-expanded="false">REAL ESTATE</h4>
+                  <div id="collapseOne" class="footer-col-content collapse">
+                    <ul>
+                      <li><a href="#">Toronto</a></li>
+                      <li><a href="#">Mississauga</a></li>
+                      <li><a href="#">Brampton</a></li>
+                      <li><a href="#">Vaughan</a></li>
+                      <li><a href="#">Markham</a></li>
+                      <li><a href="#">Oakville</a></li>
+                      <li><a href="#">Richmond Hill</a></li>
+                      <li><a href="#">Calgary</a></li>
+                      <li><a href="#">Edmonton</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3 col-md-5">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion" aria-expanded="false">MENU</h4>
+                  <div id="collapseTwo" class="footer-col-content collapse">
+                    <ul>
+                      <li><a href="#">Buy</a></li>
+                      <li><a href="#">Rent</a></li>
+                      <li><a href="#">Professionals</a></li>
+                      <li><a href="#">Saved Searches</a></li>
+                      <li><a href="#">Saved Condos</a></li>
+                      <li><a href="#">Recently Viewed</a></li>
+                      <li><a href="#">My Account</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Privacy & Terms of Use</a></li>
+                      <li><a href="#">Sitemap</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="footer-col">
+                  <h4 data-toggle="collapse" data-target="#collapseThree" data-parent="#accordion" aria-expanded="false">CONDODORK OFFICES</h4>
+                  <div id="collapseThree" class="footer-col-content collapse">
+                    <address>
+                      <p>Realty, Brokerage</p>
+                      <p>2nd Floor - 170 University Ave.</p>
+                      <p>Toronto, ON, M5H 3B3</p>
+                      <p>416-898-8932</p>
+                    </address>
+                    <address>
+                      <p>Realty (BC) Inc.</p>
+                      <p>103-119 West Pender St.</p>
+                      <p>Vancouver, BC, V6B 1S5</p>
+                      <p>604-239-1671</p>
+                    </address>
+                    <address>
+                      <p>Realty (Alberta) Inc.</p>
+                      <p>125 Hidden Cove</p>
+                      <p>Calgary, AB</p>
+                      <p>587-889-6567</p>
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-9 trademarks-col">
+                <div class="trademarks"></div>
+                <span class='trademarks-note'>MLS®, Realtor®, & associated logos are trademarks of The Canadian Real Estate Association</span>
+              </div>
+              <div class="col-xs-12 col-md-3 social-icons-col">
+                <a href="#" class="icon socicon-facebook"></a>
+                <a href="#" class="icon socicon-googleplus"></a>
+                <a href="#" class="icon socicon-pinterest"></a>
+                <a href="#" class="icon socicon-twitter"></a>
+                <a href="#" class="icon socicon-linkedin"></a>
+                <a href="#" class="icon socicon-youtube"></a>
+                <a href="#" class="icon socicon-instagram"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </div>
+  <script>
+    $('#login-modal').modal('show');
+  </script>
+</body>
+</html>

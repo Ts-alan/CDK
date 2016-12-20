@@ -1,0 +1,166 @@
+﻿
+    <div ng-if="kindview=='Building'" id="details-modal">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="bottom-main-nav clearfix">
+                    <div class="">
+                        <ul class="nav navbar-nav details-header-nav">
+                            <li>
+                                <h1>{{data.StreetAddress}}</h1>
+                                <p>{{data.PostalCode}} {{data.City}} {{data.Country}}</p>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right favorite-nav">
+                           
+                            <li>
+                                <a href="{{data.UrlForPage}}" class="expand-link" target="_blank">
+                                    Expand
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="close" ng-click="cancel()"></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <section class="medium-content ">
+                    <div class="">
+                        <div class="row details-row">
+                            <div class="col-xs-12 col-sm-8 details-content-col">
+                                <div class="object-review">
+
+                                    <slick-slider images="images" number-loaded="numberLoaded"></slick-slider>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 details-aside-col">
+                                <aside>
+                                    <div>
+
+                                        <building-details></building-details>
+                                        <features ng-if="data.Amenities.length!=0"></features>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row details-row">
+                            <div class="col-xs-12 col-sm-8 details-content-col">
+                                <div class="object-overview">
+                                    <div>
+                                        <uib-tabset>
+                                            <uib-tab  index="0" heading="Overview">
+                                                <tab-overview data="data"></tab-overview>
+                                            </uib-tab>
+                                            <uib-tab index="1" ng-if="(data.Units | filter : {TransactionType : 'For sale'}).length!=0">
+                                                <uib-tab-heading>Unit for Sale <span class="badge">{{(data.Units | filter : {TransactionType : "For sale"}).length }}</span></uib-tab-heading>
+                                                <tab-unit-for data="data.Units" type="ForSale"></tab-unit-for>
+                                            </uib-tab>
+                                            <uib-tab ng-if="(data.Units | filter : {TransactionType : 'For rent'}).length!=0" index="2" heading="Unit for Rent">
+                                                <uib-tab-heading>Unit for Rent <span class="badge">{{(data.Units | filter : {TransactionType : "For rent"}).length }}</span></uib-tab-heading>
+                                                <tab-unit-for data="data.Units" type="ForRent"></tab-unit-for>
+                                            </uib-tab>
+                                            <uib-tab ng-if="data.NeighborhoodGuide.length!=0" index="3" heading="Neighborhood Guide">
+
+                                            </uib-tab>
+                                        </uib-tabset>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 details-aside-col">
+
+                                <!--<contact-agent></contact-agent>-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+<div ng-if="kindview=='Unit'" id="details-modal">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="bottom-main-nav clearfix">
+                <div class="">
+                    <ul class="nav navbar-nav details-header-nav">
+                        <li>
+                            <h1>{{data.StreetAddress}}</h1>
+                            <p>{{data.PostalCode}} {{data.City}} {{data.Country}}</p>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right favorite-nav">
+                        <li class="add-to-fav-link">
+                            <a href="#" class="favorite">
+                                <span>Add to your favourites</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{data.UrlForPage}}" class="expand-link" target="_blank">
+                                Expand
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" class="close" ng-click="cancel()"></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <section class="medium-content ">
+
+                <div class="row details-row">
+                    <div class="col-xs-12 col-sm-8 details-content-col">
+                        <div class="object-review">
+
+                            <slick-slider images="images" number-loaded="numberLoaded"></slick-slider>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 details-aside-col">
+                        <aside>
+                            <div>
+
+                                <listing-details></listing-details>
+                                <features ng-if="data.Amenities.length!=0"></features>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+
+
+
+                <div class="row details-row">
+                    <div class="col-xs-12 col-sm-8 details-content-col">
+                        <div class="object-overview">
+                            <div>
+                                <uib-tabset>
+                                    <uib-tab index="0" ng-if="data.SeoDescription.length!=0" heading="Overview">
+                                        <tab-overview data="data"></tab-overview>
+                                    </uib-tab>
+                                    <uib-tab ng-if="data.NeighborhoodGuide.length!=0" index="1" heading="Neighborhood Guide">
+                                    </uib-tab>
+                                </uib-tabset>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 details-aside-col">
+
+                        <!--<contact-agent></contact-agent>-->
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</div>

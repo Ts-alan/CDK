@@ -1,0 +1,165 @@
+﻿@model CDK.Presentation.Web.CMS.Areas.CdkEntity.Models.Developer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Edit</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            @Html.ActionLink("Back to List", "Index", null, new
+       {
+           @class = "btn btn-primary"
+       })
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Edit Developer</h5>
+                </div>
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name)
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PrimaryContactName, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.PrimaryContactName)
+                                    @Html.ValidationMessageFor(model => model.PrimaryContactName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PrimaryContactEmail, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.PrimaryContactEmail)
+                                    @Html.ValidationMessageFor(model => model.PrimaryContactEmail)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SecondaryContactName, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SecondaryContactName)
+                                    @Html.ValidationMessageFor(model => model.SecondaryContactName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SecondaryContactEmail, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SecondaryContactEmail)
+                                    @Html.ValidationMessageFor(model => model.SecondaryContactEmail)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DeveloperAddress, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DeveloperAddress)
+                                    @Html.ValidationMessageFor(model => model.DeveloperAddress)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Description, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.Description)
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ShortDescription, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.ShortDescription)
+                                    @Html.ValidationMessageFor(model => model.ShortDescription)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.LogoUri, new
+                           {
+                               @class = "control-label col-md-2"
+                           })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.LogoUri)
+                                    @Html.ValidationMessageFor(model => model.LogoUri)
+                                </div>
+                            </div>
+
+                            @Html.Partial("_SeoEdit", Model)
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancel", "Index", null, new
+                               {
+                                   @class = "btn btn-white"
+                               })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+}

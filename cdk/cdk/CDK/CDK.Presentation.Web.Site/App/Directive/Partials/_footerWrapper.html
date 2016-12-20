@@ -1,0 +1,71 @@
+﻿<div class="helper"></div>
+<footer>
+    <div class="container-fluid">
+        <div class="footer-bg">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="/" class="brand"></a>
+                </div>
+            </div>
+            <div class="row" id="accordion">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="footer-col">
+                        <h4 data-toggle="collapse" data-target="#collapseOne" data-parent="#accordion" aria-expanded="false">REAL ESTATE</h4>
+                        <div id="collapseOne" class="footer-col-content collapse">
+                            <ul>
+                                <li ng-repeat="area in popularAreas">
+                                    <a href="" ng-click="selectArea(area)">
+                                        {{area.Name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-5">
+                    <div class="footer-col">
+                        <h4 data-toggle="collapse" data-target="#collapseTwo" data-parent="#accordion" aria-expanded="false">MENU</h4>
+                        <div id="collapseTwo" class="footer-col-content collapse">
+                            <ul>
+                                <li><a href="" ng-click="index.openSelectCityModal()">Select a city</a></li>
+                                <li><a href="http://cdkwebmagazine.azurewebsites.net/" target="_blank">News</a></li>
+                            </ul>
+                            <ul>
+                                <li data-ng-hide="!index.authentication.isAuth" ui-sref-active="active" ui-sref="account.edit" href="/account" class="active"><a href="#">My Account</a></li>
+                                <li data-ng-hide="!index.authentication.isAuth" class=""><a href="" ng-click="index.logOut()">Sign Out</a></li>
+                                <li class="unsigned ng-hide" data-ng-hide="index.authentication.isAuth"><a href="" ng-click="index.openLoginModal()">Sign In</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="footer-col">
+                        <h4 data-toggle="collapse" data-target="#collapseThree" data-parent="#accordion" aria-expanded="false">CONDODORK OFFICES</h4>
+                        <div id="collapseThree" class="footer-col-content collapse">
+                            <address>
+                                <p>Sutton Group Premier Realty</p>
+                                <p> 1 Raymond st suite 102</p>
+                                <p>Ottawa, ON, K1R 1A2</p>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-9 trademarks-col">
+                    <div class="trademarks"></div>
+                    <span class='trademarks-note'>MLS®, Realtor®, & associated logos are trademarks of The Canadian Real Estate Association</span>
+                </div>
+                <div class="col-xs-12 col-md-3 social-icons-col">
+                    <a href="#" class="icon socicon-facebook"></a>
+                    <a href="#" class="icon socicon-googleplus"></a>
+                    <a href="#" class="icon socicon-pinterest"></a>
+                    <a href="#" class="icon socicon-twitter"></a>
+                    <a href="#" class="icon socicon-linkedin"></a>
+                    <a href="#" class="icon socicon-youtube"></a>
+                    <a href="#" class="icon socicon-instagram"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

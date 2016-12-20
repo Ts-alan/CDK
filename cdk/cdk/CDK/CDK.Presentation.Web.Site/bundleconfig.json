@@ -1,0 +1,88 @@
+[
+    {
+        "outputFileName": "App/js/angular.js",
+        "inputFiles": [
+            "Scripts/lodash.js",
+            "Scripts/angular.js",
+            "Scripts/angular-route.js",
+            "Scripts/angular-resource.js",
+            "Scripts/angular-ui/ui-bootstrap-tpls.js",
+            "Scripts/angular-ui-router.js",
+            "Scripts/angular-local-storage.js",
+            "Scripts/loading-bar.js",
+            "Scripts/angular-ui-notification.js",
+            "Scripts/select.js",
+            "Scripts/angular-sanitize.js",
+            "Scripts/angular-animate.js",
+            "Scripts/angular-aside.min.js",
+            "Scripts/angularjs-dropdown-multiselect.min.js",
+            "Scripts/Slick/slick.min.js",
+            "Scripts/slick.min.js",
+            "Scripts/update-meta.min.js",
+            "Scripts/readmore.min.js"
+            
+          
+        ],
+        "includeInProject": false,
+        "minify": {
+            "enabled": true,
+            "gzip": true,
+            "renameLocals": true,
+            "termSemicolons": true
+        }
+    },
+    {
+        "outputFileName": "App/js/app.js",
+        "inputFiles": [
+            "App/**/*.js",
+            "!App/js/*.js"
+        ],
+        "includeInProject": false,
+        "minify": {
+            "enabled": true,
+            "gzip": true,
+            "renameLocals": false,
+            "termSemicolons": true
+        }
+    },
+    {
+        "outputFileName": "App/js/jquery.js",
+        "inputFiles": [
+            "Scripts/jquery-*.min.js"
+        ],
+        "includeInProject": false,
+        "minify": {
+            "enabled": true,
+            "gzip": true,
+            "renameLocals": false,
+            "termSemicolons": true
+        }
+    },
+    {
+        "outputFileName": "App/js/modernizr.js",
+        "inputFiles": [
+            "Scripts/modernizr-*.js"
+        ],
+        "includeInProject": false,
+        "minify": {
+            "enabled": true,
+            "gzip": true,
+            "renameLocals": false,
+            "termSemicolons": true
+        }
+    },
+    {
+        "outputFileName": "App/js/bootstrap.js",
+        "inputFiles": [
+            "Scripts/bootstrap.js",
+            "Scripts/respond.js"
+        ],
+        "includeInProject": false,
+        "minify": {
+            "enabled": true,
+            "gzip": true,
+            "renameLocals": false,
+            "termSemicolons": true
+        }
+    }
+]

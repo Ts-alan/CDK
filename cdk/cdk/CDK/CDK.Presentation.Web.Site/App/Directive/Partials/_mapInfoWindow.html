@@ -1,0 +1,29 @@
+﻿<div id="iw-container">
+    <div class="iw-title text-center" style="cursor: pointer">
+        <img ng-src="{{dataModel.Photo[0].LargeUri}}" ng-alt="{{dataModel.Photo[0].AltText}}" ng-click="detailsPopup(dataModel.Id, 0)" >
+        <div class="iw-header">
+            <div class="map-units-address"><strong>{{dataModel.StreetAddress}}, {{dataModel.City}}</strong></div>
+            <div class="map-units-number">{{dataModel.Units.length}} units for sale available: </div>
+        </div>
+    </div>
+    <div class="iw-content">
+       
+        <ul class="map-unit-list">
+            <li ng-repeat="item in dataModel.Units" class="map-unit-item"  ng-click="detailsPopup(item.Id, 1)" style="cursor: pointer">
+                <a class="clearfix map-unit-link">
+                    <span class="pull-left for-map-unit-image">
+                        <img ng-src="{{item.Photo[0].SmallUri}}" ng-alt="{{item.Photo[0].AltText}}" >
+                    </span>
+                    <span class="pull-left for-map-unit-info">
+                        <div class="map-unit-price"><strong>{{item.Price| currency:"$":0}}</strong></div>
+                        <span class="favorite"></span>
+                        <p>
+                            {{item.Bed}} bed, {{item.Bath}} bath, Parking: {{item.Parking}}
+                        </p>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="iw-bottom-gradient"></div>
+</div>

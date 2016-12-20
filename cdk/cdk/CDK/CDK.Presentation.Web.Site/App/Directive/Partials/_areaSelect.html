@@ -1,0 +1,7 @@
+﻿<ui-select ng-model="selectedArea" ng-attr-class="{{sClass || 'custom-select'}}" on-select="onSelectCallback($item)">
+    <ui-select-match placeholder="Select a area">{{$select.selected.Name}}</ui-select-match>
+    <ui-select-choices group-by="'Group'"
+                       repeat="area in areas | propsFilter: {Name: $select.search, ShortName: $select.search}">
+        <div ng-bind-html="area.Name | highlight: $select.search"></div>
+    </ui-select-choices>
+</ui-select>

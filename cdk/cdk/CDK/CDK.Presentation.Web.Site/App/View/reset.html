@@ -1,0 +1,26 @@
+﻿<section class="medium-content offset-md-content" ng-controller="resetPasswordController">
+    <div class="container">
+        <div class="col-md-4">
+            <div class="form-sm-wrapper form-sm-wrapper-left" ng-hide="showSuccess">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="example@email.com" ng-model="resetModel.email">
+                </div>
+                <div class="form-group">
+                    <label>New password</label>
+                    <input type="password" class="form-control" placeholder="" ng-model="resetModel.password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm new password</label>
+                    <input type="password" class="form-control" placeholder="" ng-model="resetModel.confirmPassword">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm-width text-center" ng-click="resetPassword()">Ok</button>
+            </div>
+            <div ng-show="error" class="alert alert-danger">
+                <p ng-repeat='item in error.Messages'>
+                    {{item}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

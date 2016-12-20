@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+  <title>CD Map view</title>
+
+<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+  <link rel="stylesheet" href="../Content/Site.min.css">
+  <link rel="stylesheet" href="../Content/html-map.css">
+
+
+  <!--[if IE]>
+  <script src="../Scripts/js/html5shiv.min.js"></script>
+  <![endif]-->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../Scripts/js/markerclusterer.js"></script>
+    <script src="../Scripts/jquery-2.2.3.min.js"></script>
+    <script src="../Scripts/js/map.js"></script>
+
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <script src="../Scripts/js/custom.js"></script>
+
+</head>
+
+<body class="map-class-js switch-screen">
+  <div class="page">
+        <section class="medium-content full-screen full-screen-top clearfix">
+          <div class="map-container">
+
+            <div id="map_canvas" style="width:1000px;height:600px;"></div>
+
+          </div>
+        </section>
+  </div>
+
+  <script id="iw-container" type="text/template">
+     <!-- <div id="iw-container"> -->
+      <div class="iw-title text-center">
+        <img src="../Content/images/items/home-1.jpg" alt="">
+        <div class="iw-header">
+          <div class="map-units-address"><strong>537 Carrville Rd, Richmond Hill</strong></div>
+          <div class="map-units-number">12 units for sale aviable:</div>
+        </div>
+      </div>
+      <div class="iw-content">
+        <ul class="map-unit-list">
+          <li class="map-unit-item">
+            <a href="#" class="clearfix map-unit-link">
+              <span class="pull-left for-map-unit-image">
+                  <img src="../Content/images/condo/condo-3.jpg" alt="">
+              </span>
+              <span class="pull-left for-map-unit-info">
+                  <div class="map-unit-price"><strong>$45.200.000</strong></div>
+                  <span class="favorite"></span>
+                  <p>3 bed, 3 bath, Parking: yes
+                    Condo fee: $36</p>
+              </span>
+            </a>
+          </li>
+          <li class="map-unit-item">
+            <a href="#" class="clearfix map-unit-link">
+              <span class="pull-left for-map-unit-image">
+                  <img src="../Content/images/condo/condo-7.jpg" alt="">
+              </span>
+              <span class="pull-left for-map-unit-info">
+                  <div class="map-unit-price"><strong>$45.200.000</strong></div>
+                  <span class="favorite"></span>
+                  <p>3 bed, 3 bath, Parking: yes
+                    Condo fee: $36</p>
+              </span>
+            </a>
+          </li>
+          <li class="map-unit-item">
+            <a href="#" class="clearfix map-unit-link">
+              <span class="pull-left for-map-unit-image">
+                  <img src="../Content/images/condo/condo-8.jpg" alt="">
+              </span>
+              <span class="pull-left for-map-unit-info">
+                  <div class="map-unit-price"><strong>$45.200.000</strong></div>
+                  <span class="favorite"></span>
+                  <p>3 bed, 3 bath, Parking: yes
+                    Condo fee: $36</p>
+              </span>
+            </a>
+          </li>
+          <li class="map-unit-item">
+            <a href="#" class="clearfix map-unit-link">
+              <span class="pull-left for-map-unit-image">
+                  <img src="../Content/images/condo/condo-1.jpg" alt="">
+              </span>
+              <span class="pull-left for-map-unit-info">
+                  <div class="map-unit-price"><strong>$45.200.000</strong></div>
+                  <span class="favorite"></span>
+                  <p>3 bed, 3 bath, Parking: yes
+                    Condo fee: $36</p>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="iw-bottom-gradient"></div>
+    <!-- </div> -->
+  </script>
+
+</body>
+</html>

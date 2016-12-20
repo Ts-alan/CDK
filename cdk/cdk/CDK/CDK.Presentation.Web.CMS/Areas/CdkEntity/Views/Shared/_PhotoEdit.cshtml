@@ -1,0 +1,145 @@
+﻿<div id="photosForm">
+    <div data-bind="visible: !isAnySelected()">
+        <a href="#" data-bind="click: addItem" class="btn btn-primary">Add</a>
+        <br />
+        <div class="row" style="border-bottom: 2px solid #000; font-weight: bold;">
+            <div class="col-md-1">Order</div>
+            <div class="col-md-2">Image</div>
+            <div class="col-md-2">Name</div>
+            <div class="col-md-2">Actions</div>
+        </div>
+
+        <div data-bind="sortable: { template: 'photoTmpl', data: photos}"></div>
+    </div>
+
+
+    <div data-bind="visible: isAnySelected()">
+        <div data-bind='template: { name: "photoEditTmpl",
+                            data: selected, if: isAnySelected()}'></div>
+        <div class="row">
+            <a href="#" data-bind="click: editOk" class="btn btn-primary">Ok</a>
+            <a href="#" data-bind="visible: !showEditDelete(), click: editCancelNew" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+    <script id="photoEditTmpl" type="text/html">
+        <div class="form-horizontal photo-item">
+            <div class="form-group">
+                <div class="col-md-2">
+                    <img style="width: 120px;" class="img-rounded  thumb" data-bind="attr: { src: ImageUrl }, visible: ImageUrl">
+                </div>
+                <div class="col-md-10">
+                    <div class="well" data-bind="fileDrag: fileData">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <div data-bind="ifnot: fileData().dataURL">
+                                    <label class="drag-label">Drag file here</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="file" data-bind="fileInput: fileData, customFileInput: {
+            buttonClass: 'btn btn-success',
+            fileNameClass: 'disabled form-control',
+            onClear: onClear,
+        }" accept="image/jpeg,image/jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span data-bind="validationMessage: HasImage"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="PhotoName">Photo Name</label>
+                <div class="col-md-6">
+                    <input class="text-box single-line" data-bind="value: PhotoName" name="PhotoName" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="PhotoName">Description</label>
+                <div class="col-md-6">
+                    <textarea class="text-box single-line" data-bind="value: PhotoDescription" name="PhotoDescription" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoCaption">Seo Caption</label>
+                <div class="col-md-6">
+                    <input class="text-box single-line valid" data-val="true" data-val-maxlength="The field Seo Caption must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" 
+                           name="SeoCaption" 
+                           type="text" 
+                           aria-describedby="SeoCaption-error"
+                           data-bind="value: SeoCaption">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoDescription">Seo Description</label>
+                <div class="col-md-6">
+                    <textarea class="text-box multi-line" name="SeoDescription" data-bind="value: SeoDescription"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoKeywords">Seo Keywords</label>
+                <div class="col-md-6">
+                    <input class="text-box single-line valid" 
+                           data-val="true" 
+                           data-val-maxlength="The field Seo Keywords must be a string or array type with a maximum length of '255'." 
+                           data-val-maxlength-max="255" 
+                           name="SeoKeywords" type="text" 
+                           aria-describedby="SeoKeywords-error"
+                           data-bind="value: SeoKeywords">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoSlug">Seo Slug</label>
+                <div class="col-md-6">
+                    <textarea class="text-box multi-line" name="SeoSlug" data-bind="value: SeoSlug"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoTitle">Seo Title</label>
+                <div class="col-md-6">
+                    <input class="text-box single-line" 
+                           data-val="true" 
+                           data-val-maxlength="The field Seo Title must be a string or array type with a maximum length of '255'." 
+                           data-val-maxlength-max="255" 
+                           name="SeoTitle" 
+                           type="text" 
+                           data-bind="value: SeoTitle">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoMetaDescription">Seo Meta Description</label>
+                <div class="col-md-6">
+                    <textarea class="text-box multi-line" name="SeoMetaDescription" data-bind="value: SeoMetaDescription"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="SeoURI">Seo URI</label>
+                <div class="col-md-6">
+                    <input class="text-box single-line" name="SeoURI" type="url" data-bind="value: SeoURI">
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="photoTmpl" type="text/html">
+        <div class="form-horizontal photo-item" style="background-color: white;">
+            <div class="row">
+                <div class="col-md-1"><span data-bind="text: $index"></span></div>
+                <div class="col-md-2">
+                    <img style="width: 80px;" class="img-rounded  thumb" data-bind="attr: { src: ImageUrl }, visible: ImageUrl">
+                    <br>
+                    <a data-bind="visible: LargeUri, attr: {href: FixedImageUrl}" target="_blank">Full Size Image</a>
+                </div>
+                <div class="col-md-2"><span data-bind="text: PhotoName"></span></div>
+                <div class="col-md-2">
+                    <a href="#" data-bind="visible: !$root.isDeleted($data), click: $root.selected" class="btn btn-primary">Edit</a>
+                    <a href="#" data-bind="visible: !$root.isDeleted($data), click: $root.deleteItem" class="btn btn-danger">Delete</a>
+
+                    <a href="#" data-bind="visible: $root.isDeleted($data), click: $root.restoreItem" class="btn btn-default">Restore</a>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+<br />
+<br />

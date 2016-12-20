@@ -1,0 +1,18 @@
+.form-sm-wrapper {
+  width: 256px;
+  margin: 20px auto;
+}
+.form-sm-wrapper-left {
+  margin-left: 0;
+}
+.social-profile-links {
+  margin-top: 25px;
+}
+.want-change-password {
+  display: none;
+}
+@media (max-width: 991px) {
+  .form-sm-wrapper-left.want-change-password {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,30 @@
+﻿<figure class="thumbnail">
+   
+    <figcaption class="thumbnail-card">
+        <div class="info-card">
+            <div ng-if="data.Price!=null" class="price">
+                <sup class="price-sign">$</sup>{{data.Price}}
+            </div>
+            <div class="info-location">
+                <div class="location">
+                    <a href="{{data.UrlForPage}}" class="address">
+                        <span class="street">{{data.StreetAddress}}</span>
+                        <span class="city">{{data.City}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="image-card type-condo">
+            <a href="{{data.UrlForPage}}" class="image lazy-loaded"
+               id="" ng-style="{'background-image':'url({{data.Photo.LargeUri}})'}">
+            </a>
+        </div>
+        <div class="info-overlays">
+            <ul class="info-tag-wrapper">
+                <li class="info-tag-bed">{{data.Bed}}</li>
+                <li class="info-tag-bath">{{data.Bath}}</li>
+            </ul>
+            <like></like>
+        </div>
+    </figcaption>
+</figure>

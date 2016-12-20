@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+  <title>CD 1st screen</title>
+
+<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+  <link rel="stylesheet" href="../Content/Site.min.css">
+
+    <!--[if IE]>
+    <script src="../Scripts/js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="../Scripts/jquery-2.2.3.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+
+    <script src="../Scripts/select2.min.js"></script>
+    <script src="../Scripts/js/jquery.lazyloadxt.js"></script>
+    <script src="../Scripts/js/custom.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.custom-select').select2({
+        placeholder: 'Type city',
+        // minimumResultsForSearch: Infinity
+      });
+
+    $('.custom-select-lg').select2({
+      placeholder: 'Neighborhoods',
+      // minimumResultsForSearch: Infinity
+    });
+
+  });
+</script>
+</head>
+<body class="map-class-js switch-screen">
+    <!-- Modal Login SignIn -->
+  <div class="modal fade" id="first-modal" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          <div class="for-img text-center">
+            <img class="welcome-logo" src="../Content/images/welcome-logo.png" alt="Condo Dork">
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <label class="text-xs-black text-center">Get started by choosing a location:</label>
+              <div class="text-center">
+                    <select class="js-example-basic-single custom-select custom-select-lg">
+                      <optgroup label="Alaskan/Hawaiian Time Zone">
+                        <option>Agassiz</option>
+                        <option>Assembly Row</option>
+                        <option>Auburndale</option>
+                        <option>Avon Hill</option>
+                     </optgroup>
+                      <optgroup label="Pacific Time Zone">
+                        <option>East Cambridge</option>
+                        <option>East Somerville</option>
+                        <option>Harvard Square</option>
+                        <option>Inman Square</option>
+                     </optgroup>
+                      <optgroup label="Kendall Square">
+                        <option>MIT</option>
+                        <option>Mid Cambridge</option>
+                        <option>Newton</option>
+                        <option>Newton Center</option>
+                     </optgroup>
+                      <optgroup label="Eastern Time Zone">
+                        <option>Cambridge Highlands</option>
+                        <option>Cambridgeport</option>
+                        <option>Chestnut Hill - Newton</option>
+                     </optgroup>
+                   </select>
+              </div>
+              <p class="text-xs-black text-center">POPULAR LOCATION:</p>
+              <div class="text-center btn-cloud btn-group-xs">
+                <a href="#" class="btn btn-info">Ottawa</a>
+                <a href="#" class="btn btn-info">Edmonto
+                <a href="#" class="btn btn-info">Victoria</a>
+                <a href="#" class="btn btn-info">Winnipeg</a>
+                <a href="#" class="btn btn-info">Fredericton</a>
+                <a href="#" class="btn btn-info">St. John's</a>
+                <a href="#" class="btn btn-info">New york</a>
+                <a href="#" class="btn btn-info">Ottawa</a>
+                <a href="#" class="btn btn-info">Edmonto
+                <a href="#" class="btn btn-info">Victoria</a>
+                <a href="#" class="btn btn-info">Winnipeg</a>
+                <a href="#" class="btn btn-info">Fredericton</a>
+                <a href="#" class="btn btn-info">St. John's</a>
+                <a href="#" class="btn btn-info">New york</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+
+        <header>
+          <div class="navbar" id="slide-nav">
+            <div class="container-fluid first-row-navigation">
+             <div class="navbar-header">
+              <a class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="navbar-brand" href="/"></a>
+             </div>
+             <div id="slidemenu">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Select a city</a></li>
+                 <li><a href="#">Buy</a></li>
+                 <li><a href="#">Rent</a></li>
+                 <li><a href="#">Professionals</a></li>
+                 <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More +</a>
+                   <ul class="dropdown-menu">
+                     <li><a href="#">News</a></li>
+                     <li><a href="#">News</a></li>
+                   </ul>
+                 </li>
+                  <li class="divider"></li>
+                 <li><a href="#">Saved condos <span>0</span></a></li>
+                 <li><a href="#">Saved searches <span>0</span></a></li>
+                 <li class="unsigned"><a href="#">Sign In</a></li>
+                </ul>
+             </div>
+            </div>
+            </div>
+        </header>
+        <section class="medium-content full-screen full-screen-menu clearfix">
+          <div class="map-container">
+            <img src="../Content/images/map-image.jpg" alt="" style="width:100%;height:100%;">
+          </div>
+        </section>
+  </div>
+</body>
+</html>
